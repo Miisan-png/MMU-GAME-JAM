@@ -17,7 +17,7 @@ shader_parameter/shine_width = 3.0
 albedo_color = Color(0.627098, 0.143514, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t1lpu"]
-size = Vector3(0.314367, 0.350776, 0.354272)
+size = Vector3(0.392689, 0.350776, 0.354272)
 
 [node name="IR_Action_Lever_Door" type="Node3D"]
 script = ExtResource("1_j4gli")
@@ -37,14 +37,14 @@ shape = SubResource("BoxShape3D_t1lpu")
 debug_color = Color(0, 0.650587, 0.102205, 1)
 
 [node name="Interact_Label" type="Label3D" parent="."]
-transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, -0.0123665, 0.8793, -5.91781e-05)
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.417515, 0.268904, -5.91781e-05)
 billboard = 1
 outline_modulate = Color(0, 0, 0, 0)
 text = "[E]"
 font_size = 22
 
 [node name="Item_Name_Label" type="Label3D" parent="."]
-transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, -0.0158177, 0.749097, -0.000116399)
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.414064, 0.1387, -0.000116399)
 billboard = 1
 outline_modulate = Color(0, 0, 0, 0)
 text = "[OLD BRICK]"

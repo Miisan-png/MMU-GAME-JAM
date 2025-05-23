@@ -3,7 +3,6 @@
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="1_hpqtr"]
 [ext_resource type="PackedScene" uid="uid://dvgdvwduitdpj" path="res://player/player.tscn" id="2_hpqtr"]
 [ext_resource type="PackedScene" uid="uid://cbkbw4h4byuqn" path="res://scenes/IRP/irp_door.tscn" id="2_v58xu"]
-[ext_resource type="PackedScene" uid="uid://b3btfsfqo02r8" path="res://scenes/IR/ir_action_base.tscn" id="3_hpqtr"]
 [ext_resource type="Texture2D" uid="uid://468nt77e3wm1" path="res://assets/placeholder/Metro_PSX/textures/metal_02.png" id="5_xaagg"]
 [ext_resource type="Texture2D" uid="uid://dyrp7go1ykqib" path="res://assets/placeholder/Metro_PSX/textures/metal.jpg" id="6_0308s"]
 [ext_resource type="Texture2D" uid="uid://bgojvbpakci3s" path="res://assets/placeholder/Metro_PSX/textures/metal_01.jpg" id="7_hfovl"]
@@ -30,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://6nhkm6535tvd" path="res://assets/placeholder/Metro_PSX/textures/metro_map.png" id="28_yw708"]
 [ext_resource type="Texture2D" uid="uid://c3gulwfay8my3" path="res://assets/placeholder/Metro_PSX/textures/automatic_ticket_gate.png" id="29_u6aul"]
 [ext_resource type="Texture2D" uid="uid://tni6kaxyxy1o" path="res://assets/placeholder/Metro_PSX/textures/Posters.png" id="30_tr2nj"]
+[ext_resource type="PackedScene" uid="uid://wpuhn0q3cmw0" path="res://scenes/IR/ir_action_lever.tscn" id="31_0308s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en6xy"]
 
@@ -4352,7 +4352,7 @@ light_color = Color(0.809604, 0.690346, 0.0797662, 1)
 light_energy = 6.375
 
 [node name="Player" parent="." instance=ExtResource("2_hpqtr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329097, 1.3302, 20.6898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329097, 1.3302, 11.4847)
 walk_speed = 2.0
 sprint_speed = 3.0
 crouch_speed = 1.0
@@ -4361,8 +4361,27 @@ acceleration = 6.0
 crouch_height = 0.8
 interaction_range = 0.4
 
-[node name="IR_Action" parent="." instance=ExtResource("3_hpqtr")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.00929546, 0.525115, -2.54575)
+[node name="IRP_Door" parent="." instance=ExtResource("2_v58xu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.16026, 1.17087, 23.6821)
+
+[node name="IR_Action_Lever_Door" parent="." node_paths=PackedStringArray("door_node") instance=ExtResource("31_0308s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01165, 1.04342, 14.7616)
+prompt_text = "[E]"
+item_name_text = "[SWITCH LEVER]"
+door_node = NodePath("../IRP_Door")
+
+[node name="CollisionShape3D" parent="IR_Action_Lever_Door/MeshBodyArea" index="0"]
+transform = Transform3D(-3.77894e-07, 1.99995, -1.7928e-07, -1.99995, -1.86442e-07, 3.06754e-08, 1.49012e-08, 2.6077e-08, 2, 0.187382, 0.382433, -0.0322819)
+
+[node name="Interact_Label" parent="IR_Action_Lever_Door" index="2"]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.105064, 0.250366, 0.203009)
+no_depth_test = true
+font_size = 16
+
+[node name="Item_Name_Label" parent="IR_Action_Lever_Door" index="3"]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.101613, 0.120162, 0.202951)
+no_depth_test = true
+font_size = 16
 
 [node name="train3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-06, 50, 2.18557e-06, 0, -2.18557e-06, 50, 50, 2.18557e-06, 9.55343e-14, 3.02447, 0.759481, 6.55427)
@@ -4767,5 +4786,4 @@ transform = Transform3D(-101.294, 3.94455e-05, -2.87896e-12, 0, 6.03762e-06, 101
 mesh = SubResource("ArrayMesh_xakkl")
 skeleton = NodePath("")
 
-[node name="IRP_Door" parent="." instance=ExtResource("2_v58xu")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.16026, 1.17087, 23.6821)
+[editable path="IR_Action_Lever_Door"]

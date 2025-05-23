@@ -1,16 +1,11 @@
 extends Node3D
-
 signal interacted_with_action
-
 @export var prompt_text: String = "Press E to interact"
 @export var item_name_text: String = "Item"
-
 @onready var interact_label: Label3D = $Interact_Label
 @onready var item_name_label: Label3D = $Item_Name_Label
 @onready var mesh_body_area: Area3D = $MeshBodyArea
-
-@export var door_node:Node3D
-
+@export var door_node: Node3D
 var tween: Tween
 var is_visible: bool = false
 
@@ -67,4 +62,6 @@ func hide_labels():
 
 func interact():
 	print("Interacted with: " + item_name_text)
+	if door_node and door_node.has_method("action_door_open"):
+		door_node.action_door_open()
 	interacted_with_action.emit()

@@ -20,9 +20,6 @@ func _ready():
 	add_child(close_timer)
 	close_timer.timeout.connect(_auto_close_door)
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		action_door_open()
 
 func action_door_open():
 	if is_open:
