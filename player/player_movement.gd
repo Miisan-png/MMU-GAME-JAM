@@ -9,16 +9,17 @@ extends CharacterBody3D
 
 @export var crouch_height = 0.5
 @export var normal_height = 1.0
+@export var interaction_range = 5.0
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var collision_shape = $CollisionShape3D
 
-@onready var player_raycast: RayCast3D = $Head/Camera3D/Player_Raycast
 
 
 var current_speed = 0.0
 var is_crouched = false
+var current_interactable = null
 
 var target_collision_height = 0.0
 
@@ -43,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	handle_crouch(delta)
 	handle_movement(delta)
+	handle_raycast()
 	move_and_slide()
 
 func handle_gravity(delta: float):
@@ -108,5 +110,41 @@ func handle_movement(delta: float):
 		velocity.x = 0
 		velocity.z = 0
 		
+
+
 func handle_raycast():
-	pass
+	var space_state = get_world_3d().direct_space_state
+	var from = camera.global_position
+	var to = from + camera.global_transform.basis.z * -interaction_range
+	
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var collider = result.collider
+		if collider is Area3D and collider.name == "MeshBodyArea":
+			var interactable = collider.get_parent()
+			if interactable and interactable.has_method("show_labels"):
+				if current_interactable != interactable:
+					if current_interactable:
+						current_interactable.hide_labels()
+					current_interactable = interactable
+					current_interactable.show_labels()
+			else:
+				if current_interactable:
+					current_interactable.hide_labels()
+					current_interactable = null
+		else:
+			if current_interactable:
+				current_interactable.hide_labels()
+				current_interactable = null
+	else:
+		if current_interactable:
+			current_interactable.hide_labels()
+			current_interactable = null
+	
+	if Input.is_action_just_pressed("interact") and current_interactable:
+		current_interactable.interact()

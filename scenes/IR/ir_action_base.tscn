@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3btfsfqo02r8"]
+[gd_scene load_steps=7 format=3 uid="uid://b3btfsfqo02r8"]
 
+[ext_resource type="Script" uid="uid://ch3rc5neqi3rs" path="res://scripts/IR/ir_action_base.gd" id="1_5shie"]
 [ext_resource type="Shader" uid="uid://fba8ytd4q4ap" path="res://shaders/sh_item_shine.gdshader" id="1_t1lpu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5shie"]
@@ -16,9 +17,12 @@ shader_parameter/shine_width = 3.0
 albedo_color = Color(0.627098, 0.143514, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t1lpu"]
-size = Vector3(0.699371, 0.445679, 0.357269)
+size = Vector3(0.839149, 0.668399, 0.552635)
 
 [node name="IR_Action" type="Node3D"]
+script = ExtResource("1_5shie")
+prompt_text = "[E]"
+item_name_text = "[OLD BRICK]"
 
 [node name="mesh_body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.18911, 0.0962709, -0.0467131)
@@ -29,6 +33,20 @@ surface_material_override/0 = SubResource("StandardMaterial3D_htesi")
 [node name="MeshBodyArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshBodyArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190541, 0.220411, -0.0361481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195565, 0.331771, -0.0186424)
 shape = SubResource("BoxShape3D_t1lpu")
 debug_color = Color(0, 0.650587, 0.102205, 1)
+
+[node name="Interact_Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.753943, -2.74181e-05)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[E]"
+font_size = 22
+
+[node name="Item_Name_Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.466242, -2.74181e-05)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[OLD BRICK]"
+font_size = 22
