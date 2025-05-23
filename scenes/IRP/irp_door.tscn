@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbkbw4h4byuqn"]
+[gd_scene load_steps=5 format=3 uid="uid://cbkbw4h4byuqn"]
 
 [ext_resource type="Script" uid="uid://cf776ncwsuo28" path="res://scripts/IR/irp_door.gd" id="1_ywh1y"]
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="2_ywh1y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgta6"]
+size = Vector3(6.14676, 5.37756, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywh1y"]
+size = Vector3(6.19342, 1.08289, 14.135)
 
 [node name="IRP_Door" type="Node3D"]
 transform = Transform3D(1.00073, 0, 0, 0, 1.00073, 0, 0, 0, 1.00073, 0, 0, 0)
@@ -13,7 +19,24 @@ script = ExtResource("1_ywh1y")
 transform = Transform3D(6.11203, 0, 0, 0, 5.41813, 0, 0, 0, 0.176747, 0, 0, 0)
 material = ExtResource("2_ywh1y")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGCombiner3D/DoorMesh"]
+transform = Transform3D(0.163612, 0, 0, 0, 0.184565, 0, 0, 0, 5.65781, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/DoorMesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00712591, -0.0128784, 0)
+shape = SubResource("BoxShape3D_tgta6")
+
 [node name="MeshInstance3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(6.10533, 0, 0, 0, 5.41219, 0, 0, 0, 0.176553, 0, 2.65721, 0.00899252)
 size = Vector3(1, 0.0180664, 4.81769)
 material = ExtResource("2_ywh1y")
+
+[node name="PlayerTriggerArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerTriggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00985716, -2.20538, -0.402259)
+shape = SubResource("BoxShape3D_ywh1y")
+debug_color = Color(0.992157, 0, 0.239216, 1)
+
+[connection signal="body_entered" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_body_entered"]
+[connection signal="body_exited" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_body_exited"]
