@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1wqhkqmpexku"]
+
+[ext_resource type="PackedScene" uid="uid://43i5e3s6sytb" path="res://assets/models/dog/dog.tscn" id="1_ub4bg"]
+[ext_resource type="PackedScene" uid="uid://51ariux8td1f" path="res://assets/models/SK_Mannequin.FBX" id="2_2gwky"]
+
+[node name="KudoAnimation" type="Node3D"]
+
+[node name="Dog" parent="." instance=ExtResource("1_ub4bg")]
+
+[node name="SK_Mannequin" parent="." instance=ExtResource("2_2gwky")]
