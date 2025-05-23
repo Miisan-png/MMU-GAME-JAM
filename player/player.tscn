@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgdvwduitdpj"]
+
+[ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://player/player_movement.gd" id="1_oul6g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kqu6x")
+debug_color = Color(0.450308, 0.450626, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984914, 0)
