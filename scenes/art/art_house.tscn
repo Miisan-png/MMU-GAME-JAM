@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c12r7w78syb7t"]
+
+[ext_resource type="Texture2D" uid="uid://vacsc4q56qx4" path="res://assets/texture/white box.jpg" id="1_u7l3l"]
+[ext_resource type="PackedScene" uid="uid://51ariux8td1f" path="res://assets/models/SK_Mannequin.FBX" id="2_aangx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aixo0"]
+albedo_color = Color(0.00455826, 0, 0.206249, 1)
+albedo_texture = ExtResource("1_u7l3l")
+
+[node name="ArtHouse" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(14.0925, 0, 0, 0, 0.301548, 0, 0, 0, 6.19283, -0.00158459, -0.165752, -0.402552)
+material_override = SubResource("StandardMaterial3D_aixo0")
+size = Vector3(1, 1, 1.88672)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4398, 0.595979, -0.420721)
+
+[node name="SK_Mannequin" parent="." instance=ExtResource("2_aangx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329024, 0, -0.420721)
