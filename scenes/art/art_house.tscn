@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c12r7w78syb7t"]
+[gd_scene load_steps=6 format=3 uid="uid://c12r7w78syb7t"]
 
 [ext_resource type="Texture2D" uid="uid://vacsc4q56qx4" path="res://assets/texture/white box.jpg" id="1_u7l3l"]
 [ext_resource type="PackedScene" uid="uid://51ariux8td1f" path="res://assets/models/SK_Mannequin.FBX" id="2_aangx"]
+[ext_resource type="PackedScene" uid="uid://bhemw6wy8170w" path="res://assets/models/polaroid.tscn" id="3_1h2pi"]
+[ext_resource type="PackedScene" uid="uid://dcn0lyt7jmwm2" path="res://assets/models/walkie.blend" id="4_ntio2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aixo0"]
 albedo_color = Color(0.00455826, 0, 0.206249, 1)
@@ -19,3 +21,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4398, 0.595979, -0.420721)
 
 [node name="SK_Mannequin" parent="." instance=ExtResource("2_aangx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329024, 0, -0.420721)
+
+[node name="polaroid" parent="." instance=ExtResource("3_1h2pi")]
+transform = Transform3D(-0.000671428, -0.101184, -0.000700504, 0.101186, -0.000672661, 0.000176143, -0.000180791, -0.000699319, 0.101186, 1.6585, -0.0141529, 1.00494)
+
+[node name="walkie" parent="." instance=ExtResource("4_ntio2")]
+transform = Transform3D(-0.0563766, 0.156416, -0.0429956, -0.0243104, 0.0368571, 0.165963, 0.160381, 0.0605697, 0.0100429, 0.931162, 0.564004, 0.352272)
