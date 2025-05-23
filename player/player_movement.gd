@@ -14,6 +14,9 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D
 @onready var collision_shape = $CollisionShape3D
 
+@onready var player_raycast: RayCast3D = $Head/Camera3D/Player_Raycast
+
+
 var current_speed = 0.0
 var is_crouched = false
 
@@ -28,6 +31,12 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * sensitivity)
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -98,3 +107,6 @@ func handle_movement(delta: float):
 	else:
 		velocity.x = 0
 		velocity.z = 0
+		
+func handle_raycast():
+	pass

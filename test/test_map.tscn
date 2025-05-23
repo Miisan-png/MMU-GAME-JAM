@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfoqx5qci1oon"]
+[gd_scene load_steps=8 format=3 uid="uid://dfoqx5qci1oon"]
 
 [ext_resource type="Texture2D" uid="uid://gnsp4fq8v2mh" path="res://assets/prototype/PNG/Dark/texture_01.png" id="1_en6xy"]
 [ext_resource type="PackedScene" uid="uid://dvgdvwduitdpj" path="res://player/player.tscn" id="2_hpqtr"]
+[ext_resource type="PackedScene" uid="uid://b3btfsfqo02r8" path="res://scenes/IR/ir_action_base.tscn" id="3_hpqtr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en6xy"]
 
@@ -11,6 +12,8 @@ sky_material = SubResource("ProceduralSkyMaterial_en6xy")
 [sub_resource type="Environment" id="Environment_v58xu"]
 background_mode = 2
 sky = SubResource("Sky_hpqtr")
+fog_enabled = true
+fog_light_color = Color(0.11666, 0.130722, 0.15283, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v58xu"]
 vertex_color_use_as_albedo = true
@@ -33,10 +36,18 @@ size = Vector3(13.2502, 1, 18.541)
 material = SubResource("StandardMaterial3D_v58xu")
 
 [node name="Player" parent="." instance=ExtResource("2_hpqtr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.883095, 1.35617, -0.0156126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918656, 1.3302, -0.00412878)
 walk_speed = 2.0
 sprint_speed = 3.0
 crouch_speed = 3.5
 jump_velocity = 3.0
 acceleration = 6.0
 crouch_height = 0.8
+
+[node name="IR_Action" parent="." instance=ExtResource("3_hpqtr")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.540456, -2.53969)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.34121, -2.84653)
+light_color = Color(0.809604, 0.690346, 0.0797662, 1)
+light_energy = 6.375
