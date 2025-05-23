@@ -14,6 +14,11 @@ config/name="MMU-Game-Jam"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/text_to_speech=true
+driver/enable_input=true
+
 [display]
 
 window/stretch/mode="canvas_items"

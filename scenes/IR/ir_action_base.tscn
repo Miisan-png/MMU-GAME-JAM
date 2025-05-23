@@ -17,7 +17,7 @@ shader_parameter/shine_width = 3.0
 albedo_color = Color(0.627098, 0.143514, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t1lpu"]
-size = Vector3(0.839149, 0.668399, 0.552635)
+size = Vector3(0.380442, 0.240505, 0.354272)
 
 [node name="IR_Action" type="Node3D"]
 script = ExtResource("1_5shie")
@@ -33,19 +33,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_htesi")
 [node name="MeshBodyArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshBodyArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195565, 0.331771, -0.0186424)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.191099, 0.238038, -0.0322785)
 shape = SubResource("BoxShape3D_t1lpu")
 debug_color = Color(0, 0.650587, 0.102205, 1)
 
 [node name="Interact_Label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.753943, -2.74181e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.528963, -2.74181e-05)
 billboard = 1
 outline_modulate = Color(0, 0, 0, 0)
 text = "[E]"
 font_size = 22
 
 [node name="Item_Name_Label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.466242, -2.74181e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179481, 0.334919, -2.74181e-05)
 billboard = 1
 outline_modulate = Color(0, 0, 0, 0)
 text = "[OLD BRICK]"

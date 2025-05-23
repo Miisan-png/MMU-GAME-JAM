@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://wpuhn0q3cmw0"]
+
+[ext_resource type="Script" uid="uid://dky11upb0tfnf" path="res://scripts/IR/ir_action_lever.gd" id="1_j4gli"]
+[ext_resource type="Shader" uid="uid://fba8ytd4q4ap" path="res://shaders/sh_item_shine.gdshader" id="2_n7d0e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5shie"]
+render_priority = 0
+shader = ExtResource("2_n7d0e")
+shader_parameter/shine_color = Color(0.949899, 0.920372, 0.161558, 1)
+shader_parameter/cycle_interval = 4.0
+shader_parameter/shine_speed = 2.0
+shader_parameter/shine_width = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_htesi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htesi"]
+albedo_color = Color(0.627098, 0.143514, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t1lpu"]
+size = Vector3(0.314367, 0.350776, 0.354272)
+
+[node name="IR_Action_Lever_Door" type="Node3D"]
+script = ExtResource("1_j4gli")
+
+[node name="lever_body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00274362, 0.199998, -5.16112e-05, -0.699992, 0.000783746, -0.000551407, -0.0019292, 5.37748e-05, 0.199999, -0.00603148, 0.186127, -0.0468988)
+material_overlay = SubResource("ShaderMaterial_5shie")
+mesh = SubResource("BoxMesh_htesi")
+surface_material_override/0 = SubResource("StandardMaterial3D_htesi")
+
+[node name="MeshBodyArea" type="Area3D" parent="."]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, -0.104833, 0.373804, 0.000306429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshBodyArea"]
+transform = Transform3D(-2.5399e-07, 1.99998, -8.84756e-08, -1.99998, -1.44554e-07, 1.51922e-08, 7.39237e-09, 1.35042e-08, 2, 0.187382, 0.304113, -0.0322785)
+shape = SubResource("BoxShape3D_t1lpu")
+debug_color = Color(0, 0.650587, 0.102205, 1)
+
+[node name="Interact_Label" type="Label3D" parent="."]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, -0.0123665, 0.8793, -5.91781e-05)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[E]"
+font_size = 22
+
+[node name="Item_Name_Label" type="Label3D" parent="."]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, -0.0158177, 0.749097, -0.000116399)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[OLD BRICK]"
+font_size = 22

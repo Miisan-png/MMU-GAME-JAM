@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfoqx5qci1oon"]
 
-[ext_resource type="Texture2D" uid="uid://gnsp4fq8v2mh" path="res://assets/prototype/PNG/Dark/texture_01.png" id="1_en6xy"]
+[ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="1_hpqtr"]
 [ext_resource type="PackedScene" uid="uid://dvgdvwduitdpj" path="res://player/player.tscn" id="2_hpqtr"]
+[ext_resource type="PackedScene" uid="uid://cbkbw4h4byuqn" path="res://scenes/IRP/irp_door.tscn" id="2_v58xu"]
 [ext_resource type="PackedScene" uid="uid://b3btfsfqo02r8" path="res://scenes/IR/ir_action_base.tscn" id="3_hpqtr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en6xy"]
@@ -12,15 +13,7 @@ sky_material = SubResource("ProceduralSkyMaterial_en6xy")
 [sub_resource type="Environment" id="Environment_v58xu"]
 background_mode = 2
 sky = SubResource("Sky_hpqtr")
-fog_enabled = true
 fog_light_color = Color(0.11666, 0.130722, 0.15283, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v58xu"]
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_en6xy")
-uv1_triplanar = true
-uv2_triplanar = true
-uv2_world_triplanar = true
 
 [node name="TestMap" type="Node3D"]
 
@@ -33,20 +26,33 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 size = Vector3(13.2502, 1, 18.541)
-material = SubResource("StandardMaterial3D_v58xu")
+material = ExtResource("1_hpqtr")
+
+[node name="IRP_Door" parent="CSGCombiner3D/CSGBox3D" instance=ExtResource("2_v58xu")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.20152, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30357, 1.32904, 0)
+size = Vector3(0.193891, 3.65808, 18.541)
+material = ExtResource("1_hpqtr")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28522, 1.32904, 0.00123882)
+size = Vector3(0.193891, 3.65808, 18.541)
+material = ExtResource("1_hpqtr")
 
 [node name="Player" parent="." instance=ExtResource("2_hpqtr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918656, 1.3302, -0.00412878)
+transform = Transform3D(-0.999387, 0, 0.0350216, 0, 1, 0, -0.0350216, 0, -0.999387, -0.202123, 1.3302, -5.45676)
 walk_speed = 2.0
 sprint_speed = 3.0
-crouch_speed = 3.5
+crouch_speed = 1.0
 jump_velocity = 3.0
 acceleration = 6.0
 crouch_height = 0.8
 interaction_range = 0.4
 
 [node name="IR_Action" parent="." instance=ExtResource("3_hpqtr")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.00929546, 0.540456, -2.54575)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.00929546, 0.525115, -2.54575)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.34121, -2.84653)

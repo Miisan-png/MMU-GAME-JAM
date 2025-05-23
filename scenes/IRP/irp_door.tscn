@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbkbw4h4byuqn"]
+
+[ext_resource type="Script" uid="uid://cf776ncwsuo28" path="res://scripts/IR/irp_door.gd" id="1_ywh1y"]
+[ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="2_ywh1y"]
+
+[node name="IRP_Door" type="Node3D"]
+transform = Transform3D(1.00073, 0, 0, 0, 1.00073, 0, 0, 0, 1.00073, 0, 0, 0)
+script = ExtResource("1_ywh1y")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="DoorMesh" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(6.11203, 0, 0, 0, 5.41813, 0, 0, 0, 0.176747, 0, 0, 0)
+material = ExtResource("2_ywh1y")
+
+[node name="MeshInstance3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(6.10533, 0, 0, 0, 5.41219, 0, 0, 0, 0.176553, 0, 2.65721, 0.00899252)
+size = Vector3(1, 0.0180664, 4.81769)
+material = ExtResource("2_ywh1y")
