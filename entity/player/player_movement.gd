@@ -19,6 +19,10 @@ extends CharacterBody3D
 @onready var fetch_item_label: Label = $CanvasLayer/player_hud/fetch_item_label
 @onready var crosshair_rect: ColorRect = $CanvasLayer/player_hud/crosshair_rect
 
+
+@onready var mic_system: Control = $CanvasLayer/mic_test
+
+
 @export var fetch_item_range = 20.0  
 var current_fetchable_item = null
 var is_fetch_raycast_active = false
@@ -34,6 +38,8 @@ signal fetch_command_received(target_position: Vector3)
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	target_collision_height = normal_height
+	if mic_system:
+		mic_system.voice_fetch_triggered.connect(_on_voice_fetch_command)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -47,9 +53,9 @@ func _unhandled_input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
-	if Input.is_action_just_pressed("fetch") and current_fetchable_item and GM.whistle_mode_enabled:
-		var fetch_position = current_fetchable_item.global_position
-		emit_signal("fetch_command_received", fetch_position)
+	#if Input.is_action_just_pressed("fetch") and current_fetchable_item and GM.whistle_mode_enabled:
+		#var fetch_position = current_fetchable_item.global_position
+		#emit_signal("fetch_command_received", fetch_position)
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -205,6 +211,12 @@ func handle_fetch_item_raycast():
 		if current_fetchable_item:
 			hide_fetch_ui()
 			current_fetchable_item = null
+
+func _on_voice_fetch_command():
+	if current_fetchable_item and GM.whistle_mode_enabled:
+		var fetch_position = current_fetchable_item.global_position
+		emit_signal("fetch_command_received", fetch_position)
+		print("Voice fetch command executed!")
 
 func show_fetch_ui():
 	fetch_item_label.visible = true

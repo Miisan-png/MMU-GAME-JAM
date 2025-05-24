@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvgdvwduitdpj"]
+[gd_scene load_steps=6 format=3 uid="uid://dvgdvwduitdpj"]
 
 [ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://entity/player/player_movement.gd" id="1_oul6g"]
 [ext_resource type="Shader" uid="uid://cwp3lteo8wjxy" path="res://shaders/sh_dither_overlay.gdshader" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://c4cnul61tde74" path="res://mic_system/mic_system.tscn" id="3_4pl66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.309057
@@ -78,3 +79,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="mic_test" parent="CanvasLayer" instance=ExtResource("3_4pl66")]
+keywords = Array[String](["fetch"])
