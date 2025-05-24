@@ -125,6 +125,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="mic_test" parent="CanvasLayer" instance=ExtResource("3_4pl66")]
+mouse_filter = 1
 keywords = Array[String](["fetch"])
 
 [node name="CollectArea" type="Area3D" parent="."]

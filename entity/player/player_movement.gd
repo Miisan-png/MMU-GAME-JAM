@@ -18,6 +18,7 @@ extends CharacterBody3D
 @export var crosshair_highlight_color:Color
 @onready var fetch_item_label: Label = $CanvasLayer/player_hud/fetch_item_label
 @onready var crosshair_rect: ColorRect = $CanvasLayer/player_hud/crosshair_rect
+@onready var player_hud: Control = $CanvasLayer/player_hud
 
 
 @onready var mic_system: Control = $CanvasLayer/mic_test
@@ -42,6 +43,16 @@ func _ready():
 		mic_system.voice_fetch_triggered.connect(_on_voice_fetch_command)
 
 func _unhandled_input(event):
+	if GM.in_keypad_state:
+		crosshair_rect.visible = false
+		player_hud.visible = false
+		player_hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		return
+	
+	crosshair_rect.visible = true
+	player_hud.visible = true
+	player_hud.mouse_filter = Control.MOUSE_FILTER_PASS
+		
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity)
 		camera.rotate_x(-event.relative.y * sensitivity)
@@ -52,10 +63,6 @@ func _unhandled_input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
-	#if Input.is_action_just_pressed("fetch") and current_fetchable_item and GM.whistle_mode_enabled:
-		#var fetch_position = current_fetchable_item.global_position
-		#emit_signal("fetch_command_received", fetch_position)
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -233,3 +240,6 @@ func show_fetch_ui():
 func hide_fetch_ui():
 	fetch_item_label.visible = false
 	crosshair_rect.color = Color.WHITE
+
+func is_player() -> bool:
+	return true
