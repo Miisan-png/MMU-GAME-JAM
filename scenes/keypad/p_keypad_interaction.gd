@@ -25,6 +25,8 @@ extends Node3D
 @onready var number_1: Label3D = $display_labels/number_1
 @onready var number_2: Label3D = $display_labels/number_2
 @onready var number_3: Label3D = $display_labels/number_3
+@onready var item_name_label: Label3D = $Item_Name_Label
+
 
 @onready var puzzle_camera: Camera3D = $PuzzleCamera
 
@@ -73,6 +75,7 @@ func _ready():
 	number_1.modulate = NORMAL_COLOR
 	number_2.modulate = NORMAL_COLOR
 	number_3.modulate = NORMAL_COLOR
+	item_name_label.hide()
 	
 	puzzle_camera.current = false
 	puzzle_camera_base_pos = puzzle_camera.global_position
@@ -109,6 +112,7 @@ func activate_puzzle():
 	original_player_pos = player_camera.global_position
 	original_player_rot = player_camera.global_rotation
 	GM.in_keypad_state = true
+	item_name_label.hide()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

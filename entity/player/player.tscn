@@ -13,8 +13,6 @@
 radius = 0.309057
 height = 1.52007
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wjhpj"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_447c0"]
 resource_name = "Material.001"
 cull_mode = 2
@@ -270,6 +268,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_75rur")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjhpj"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
 shader = ExtResource("2_rkbax")
 shader_parameter/_ScanLineJitter = 0.25
@@ -293,58 +293,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.966805, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018109, 0)
 
+[node name="PickedWalkieTalkie" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(0.273356, -0.00474894, -0.123506, -2.93118e-10, 0.299778, -0.0115268, 0.123597, 0.0105031, 0.273154, 0.230945, -0.065947, -0.102271)
+script = ExtResource("2_2iqu4")
+
+[node name="Mesh" type="Node3D" parent="Head/Camera3D/PickedWalkieTalkie"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(0.278155, 0, 0, 0, 0.677442, 0, 0, 0, 0.149698, 0, 0.117059, 0)
+mesh = SubResource("ArrayMesh_wjhpj")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(0.226948, 0, 0, 0, 0.178613, 0, 0, 0, 0.00902367, 0, 0.553286, 0.153282)
+mesh = SubResource("ArrayMesh_2iqu4")
+skeleton = NodePath("")
+
+[node name="Cylinder" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(0.042543, 0, 0, 0, 0.042543, 0, 0, 0, 0.042543, 0.193551, 0.828362, -0.00343535)
+mesh = SubResource("ArrayMesh_4btn6")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(0.226948, 0, 0, 0, 0.0166898, 0, 0, 0, 0.00902367, 0, 0.68836, 0.169894)
+mesh = SubResource("ArrayMesh_t2ln0")
+skeleton = NodePath("")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(-0.0602822, 0, 0, 0, -0.0432768, 0, 0, 0, -0.0602822, -0.172701, 0.818991, 0)
+mesh = SubResource("ArrayMesh_qa8rf")
+skeleton = NodePath("")
+
+[node name="Cube_003" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(-0.0205774, 0, 0, 0, 0.0810486, 0, 0, 0, -0.0397038, 0.291475, 0.589291, 0.0391082)
+mesh = SubResource("ArrayMesh_klmji")
+skeleton = NodePath("")
+
+[node name="Cube_004" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(-0.0205774, 0, 0, 0, 0.0810486, 0, 0, 0, -0.0397038, 0.291475, 0.391243, 0.0391082)
+mesh = SubResource("ArrayMesh_klmji")
+skeleton = NodePath("")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Head/Camera3D/PickedWalkieTalkie/Mesh"]
+transform = Transform3D(-0.00872806, 0, 0, 0, 0, 0.00872806, 0, -0.00105589, 0, -0.253956, 0.589682, 0.150351)
+material_override = SubResource("StandardMaterial3D_2iqu4")
+mesh = SubResource("ArrayMesh_wltfy")
+
 [node name="pb" type="Area3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00304019, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/pb"]
 shape = SubResource("BoxShape3D_wjhpj")
-
-[node name="PickedWalkieTalkie" type="Node3D" parent="Head"]
-transform = Transform3D(0.273356, -0.00474894, -0.123506, -2.93118e-10, 0.299778, -0.0115268, 0.123597, 0.0105031, 0.273154, 0.230945, -0.475134, -0.290047)
-script = ExtResource("2_2iqu4")
-
-[node name="Mesh" type="Node3D" parent="Head/PickedWalkieTalkie"]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
-
-[node name="Cube" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(0.278155, 0, 0, 0, 0.677442, 0, 0, 0, 0.149698, 0, 0.117059, 0)
-mesh = SubResource("ArrayMesh_wjhpj")
-skeleton = NodePath("")
-
-[node name="Cube_001" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(0.226948, 0, 0, 0, 0.178613, 0, 0, 0, 0.00902367, 0, 0.553286, 0.153282)
-mesh = SubResource("ArrayMesh_2iqu4")
-skeleton = NodePath("")
-
-[node name="Cylinder" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(0.042543, 0, 0, 0, 0.042543, 0, 0, 0, 0.042543, 0.193551, 0.828362, -0.00343535)
-mesh = SubResource("ArrayMesh_4btn6")
-skeleton = NodePath("")
-
-[node name="Cube_002" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(0.226948, 0, 0, 0, 0.0166898, 0, 0, 0, 0.00902367, 0, 0.68836, 0.169894)
-mesh = SubResource("ArrayMesh_t2ln0")
-skeleton = NodePath("")
-
-[node name="Cylinder_001" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(-0.0602822, 0, 0, 0, -0.0432768, 0, 0, 0, -0.0602822, -0.172701, 0.818991, 0)
-mesh = SubResource("ArrayMesh_qa8rf")
-skeleton = NodePath("")
-
-[node name="Cube_003" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(-0.0205774, 0, 0, 0, 0.0810486, 0, 0, 0, -0.0397038, 0.291475, 0.589291, 0.0391082)
-mesh = SubResource("ArrayMesh_klmji")
-skeleton = NodePath("")
-
-[node name="Cube_004" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(-0.0205774, 0, 0, 0, 0.0810486, 0, 0, 0, -0.0397038, 0.291475, 0.391243, 0.0391082)
-mesh = SubResource("ArrayMesh_klmji")
-skeleton = NodePath("")
-
-[node name="Cylinder_002" type="MeshInstance3D" parent="Head/PickedWalkieTalkie/Mesh"]
-transform = Transform3D(-0.00872806, 0, 0, 0, 0, 0.00872806, 0, -0.00105589, 0, -0.253956, 0.589682, 0.150351)
-material_override = SubResource("StandardMaterial3D_2iqu4")
-mesh = SubResource("ArrayMesh_wltfy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -402,29 +402,29 @@ script = ExtResource("2_wjhpj")
 [node name="walkie_talkie_ic" type="TextureRect" parent="CanvasLayer/player_hud/InventoryIcon"]
 layout_mode = 0
 offset_left = -5.0
-offset_top = 3.0
+offset_top = 64.0
 offset_right = 99.0
-offset_bottom = 107.0
+offset_bottom = 168.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bgq54")
 expand_mode = 1
 
 [node name="keycard_ic" type="TextureRect" parent="CanvasLayer/player_hud/InventoryIcon"]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 1.0
-offset_right = 99.0
-offset_bottom = 105.0
+offset_left = -4.0
+offset_top = 129.0
+offset_right = 90.0
+offset_bottom = 223.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_482rp")
 expand_mode = 1
 
 [node name="polaroid_ic" type="TextureRect" parent="CanvasLayer/player_hud/InventoryIcon"]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 1.0
-offset_right = 99.0
-offset_bottom = 105.0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 94.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_4btn6")
 expand_mode = 1

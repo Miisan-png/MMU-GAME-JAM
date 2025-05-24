@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch523disywm0i"]
 
-[ext_resource type="Script" path="res://global/s_audio_manager.gd" id="1_q2541"]
+[ext_resource type="Script" uid="uid://liwudrvbxb3i" path="res://global/s_game_manager.gd" id="1_q2541"]
 
 [node name="AAudioPlayer" type="Control"]
 layout_mode = 3

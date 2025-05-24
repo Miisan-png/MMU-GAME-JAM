@@ -223,7 +223,6 @@ func handle_fetch_item_raycast():
 func is_valid_fetchable_item(item) -> bool:
 	return item != null and is_instance_valid(item)
 
-
 func _on_voice_fetch_command():
 	if current_fetchable_item and GM.whistle_mode_enabled:
 		var fetch_position = current_fetchable_item.global_position

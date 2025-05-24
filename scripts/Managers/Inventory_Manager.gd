@@ -6,6 +6,7 @@ extends Control
 func _ready():
 	walkie_talkie_ic.scale = Vector2.ZERO
 	keycard_ic.scale = Vector2.ZERO
+	polaroid_ic.scale = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	if GM.p_keycard_collected == true:
@@ -43,6 +44,8 @@ func hide_icon(icon_name: String):
 			icon_to_hide = walkie_talkie_ic
 		"keycard":
 			icon_to_hide = keycard_ic
+		"polaroid":
+			icon_to_hide = polaroid_ic
 		_:
 			return
 	
