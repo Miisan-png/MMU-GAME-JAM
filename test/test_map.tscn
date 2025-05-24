@@ -1,4 +1,4 @@
-[gd_scene load_steps=223 format=4 uid="uid://dfoqx5qci1oon"]
+[gd_scene load_steps=224 format=4 uid="uid://dfoqx5qci1oon"]
 
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="1_hpqtr"]
 [ext_resource type="PackedScene" uid="uid://dvgdvwduitdpj" path="res://entity/player/player.tscn" id="2_hpqtr"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://wpuhn0q3cmw0" path="res://scenes/IR/ir_action_lever.tscn" id="31_0308s"]
 [ext_resource type="PackedScene" uid="uid://m2b5qu5k4jf" path="res://entity/en_dog/entity_dog.tscn" id="31_hfovl"]
 [ext_resource type="PackedScene" uid="uid://d1jgjrmjyduy8" path="res://scenes/IR/ir_fetchable_item.tscn" id="32_hfovl"]
+[ext_resource type="PackedScene" uid="uid://c0jpseri0w3sf" path="res://scenes/IRP/irp_door_2.tscn" id="33_dv2w7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en6xy"]
 
@@ -4832,44 +4833,34 @@ player = NodePath("../Player")
 [node name="Skeleton3D" parent="EN_DOG/metarig" index="0"]
 bones/0/position = Vector3(0, 0.7731, -0.0319)
 bones/0/rotation = Quaternion(-0.49192, -0.507961, 0.49221, 0.507661)
-bones/1/rotation = Quaternion(-0.000253698, -0.00593586, -0.0388474, 0.999227)
-bones/2/rotation = Quaternion(0.00160322, 0.00260152, 0.163023, 0.986618)
-bones/3/rotation = Quaternion(-0.00347288, -0.0238737, -0.111194, 0.993506)
-bones/4/rotation = Quaternion(-0.00358469, 0.0262631, -0.124542, 0.99186)
-bones/5/rotation = Quaternion(-0.000157023, 0.00113784, -0.136062, 0.9907)
+bones/2/rotation = Quaternion(0.00174284, 0.00259506, 0.17722, 0.984166)
+bones/3/rotation = Quaternion(-0.00302555, -0.0239097, -0.0968718, 0.995005)
+bones/5/rotation = Quaternion(-0.000182871, 0.00113401, -0.158457, 0.987365)
 bones/5/scale = Vector3(0.999999, 1, 1)
-bones/6/rotation = Quaternion(-0.000437054, -0.00596419, -0.0730115, 0.997313)
-bones/8/rotation = Quaternion(0.757082, 0.608475, 0.236965, -0.0207782)
-bones/9/rotation = Quaternion(-0.483855, 0.52028, 0.487795, 0.507197)
-bones/10/rotation = Quaternion(0.819214, -0.00230313, 0.0251098, 0.572933)
-bones/11/rotation = Quaternion(-0.715528, 0.00662162, -0.021583, 0.698219)
-bones/12/rotation = Quaternion(0.00575656, 0.777759, -0.628535, -0.001228)
-bones/13/rotation = Quaternion(-0.615043, 0.346135, 0.622423, 0.338382)
-bones/14/rotation = Quaternion(0.769793, 0.00386996, -0.0305375, 0.637552)
-bones/15/rotation = Quaternion(-0.827587, -0.00838523, 0.0234698, 0.560784)
-bones/16/rotation = Quaternion(-0.00605512, 0.994582, -0.103764, 0.00175588)
-bones/17/position = Vector3(0, 0.724474, -0.0319)
-bones/17/rotation = Quaternion(0.647089, 0, 0, 0.762414)
-bones/18/rotation = Quaternion(0.032562, -1.98698e-07, 1.89436e-08, 0.99947)
-bones/19/rotation = Quaternion(0.0122192, 1.03736e-06, -2.61574e-08, 0.999925)
-bones/20/rotation = Quaternion(-0.290376, -5.48881e-07, -3.03755e-07, 0.956913)
-bones/21/rotation = Quaternion(-0.223294, -2.56654e-07, -6.8461e-08, 0.974751)
+bones/6/rotation = Quaternion(-0.000589358, -0.00595109, -0.0984552, 0.995124)
+bones/9/rotation = Quaternion(-0.483644, 0.520486, 0.487589, 0.507386)
+bones/10/rotation = Quaternion(0.811211, -0.00239086, 0.0248242, 0.584221)
+bones/11/rotation = Quaternion(-0.70795, 0.00665329, -0.0213943, 0.705907)
+bones/12/rotation = Quaternion(0.0057463, 0.780338, -0.625331, -0.00115067)
+bones/13/rotation = Quaternion(-0.614883, 0.346411, 0.62227, 0.33867)
+bones/14/rotation = Quaternion(0.764038, 0.00404006, -0.0301571, 0.644454)
+bones/15/rotation = Quaternion(-0.819047, -0.00839191, 0.0233474, 0.57319)
+bones/16/rotation = Quaternion(-0.00593781, 0.993299, -0.115407, 0.00173393)
+bones/17/position = Vector3(0, 0.732864, -0.0319)
+bones/21/rotation = Quaternion(-0.209227, -2.57613e-07, -6.47559e-08, 0.977867)
 bones/22/rotation = Quaternion(0.5144, 1.21823e-07, 6.25653e-08, 0.85755)
-bones/23/rotation = Quaternion(0.549491, 5.10531e-09, 2.73344e-09, 0.8355)
-bones/24/rotation = Quaternion(-0.233657, -0.0707378, -0.222257, 0.943929)
-bones/25/rotation = Quaternion(0.094573, 0.00422042, 0.195979, 0.976028)
+bones/23/rotation = Quaternion(0.585083, 5.21866e-09, 2.51028e-09, 0.810974)
 bones/26/rotation = Quaternion(-0.233657, 0.0707375, 0.222257, 0.943929)
-bones/27/rotation = Quaternion(0.094573, -0.00422042, -0.195979, 0.976028)
 bones/28/rotation = Quaternion(0.572439, 0.159976, -0.0871295, 0.799456)
-bones/29/rotation = Quaternion(0.434817, 0.00789903, 0.166858, 0.88489)
+bones/29/rotation = Quaternion(0.416649, 0.00332566, 0.169306, 0.893156)
 bones/29/scale = Vector3(1, 0.999999, 1)
-bones/30/rotation = Quaternion(-0.412058, -0.0210507, 0.0597475, 0.908953)
-bones/31/rotation = Quaternion(-0.214553, 0.0285501, -0.000751411, 0.976295)
-bones/32/rotation = Quaternion(0.0790971, 0.932869, -0.35078, 0.0212723)
-bones/34/rotation = Quaternion(0.345453, 0.0137876, -0.170089, 0.92279)
-bones/35/rotation = Quaternion(-0.385925, 0.0220001, -0.0524419, 0.920776)
-bones/36/rotation = Quaternion(-0.160341, -0.0293038, 0.00295788, 0.986622)
-bones/37/rotation = Quaternion(-0.116732, 0.935442, -0.331377, -0.0388638)
+bones/30/rotation = Quaternion(-0.377076, -0.0212106, 0.0544937, 0.924334)
+bones/31/rotation = Quaternion(-0.218678, 0.0288454, -0.00096078, 0.97537)
+bones/32/rotation = Quaternion(0.0783245, 0.926401, -0.367656, 0.0218316)
+bones/34/rotation = Quaternion(0.329589, 0.0173982, -0.171722, 0.928213)
+bones/35/rotation = Quaternion(-0.354439, 0.0221712, -0.0480503, 0.93358)
+bones/36/rotation = Quaternion(-0.16499, -0.0294524, 0.00294612, 0.985851)
+bones/37/rotation = Quaternion(-0.115945, 0.931102, -0.343541, -0.0398074)
 bones/39/rotation = Quaternion(0.295446, 7.0226e-08, -1.26004e-07, 0.95536)
 
 [node name="test_obstacle" type="StaticBody3D" parent="."]
@@ -4890,6 +4881,9 @@ mesh = SubResource("BoxMesh_hfovl")
 transform = Transform3D(0.680351, 0, 0, 0, 0.680351, 0, 0, 0, 0.680351, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_dv2w7")
 debug_color = Color(0.853892, 0.360383, 0.214496, 0.42)
+
+[node name="IRP_Door_2" parent="." instance=ExtResource("33_dv2w7")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0352192, 1.55083, 8.11245)
 
 [editable path="Player"]
 [editable path="IR_Action_Lever_Door"]

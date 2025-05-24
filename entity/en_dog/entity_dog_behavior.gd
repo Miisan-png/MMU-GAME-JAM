@@ -496,10 +496,5 @@ func _on_player_near_trigger_body_exited(body: Node3D) -> void:
 		player_very_close = false
 		sit_timer = 0.0
 
-
-func _on_obstacle_detection_area_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
-
-
-func _on_obstacle_detection_area_area_exited(area: Area3D) -> void:
-	pass # Replace with function body.
+func _collect_keycard():
+	GM.p_keycard_collected = true

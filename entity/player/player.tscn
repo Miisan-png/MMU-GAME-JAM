@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvgdvwduitdpj"]
+[gd_scene load_steps=10 format=3 uid="uid://dvgdvwduitdpj"]
 
 [ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://entity/player/player_movement.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://b1dnxlvd3mwox" path="res://assets/icons/walkie_talkie.png" id="2_bgq54"]
 [ext_resource type="Shader" uid="uid://cwp3lteo8wjxy" path="res://shaders/sh_dither_overlay.gdshader" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://bab6d157pd4lg" path="res://scripts/Managers/Inventory_Manager.gd" id="2_wjhpj"]
 [ext_resource type="PackedScene" uid="uid://c4cnul61tde74" path="res://mic_system/mic_system.tscn" id="3_4pl66"]
+[ext_resource type="Texture2D" uid="uid://dhvn0pa6njhe1" path="res://assets/icons/keycard.png" id="3_482rp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.309057
@@ -14,6 +17,9 @@ shader_parameter/_ScanLineJitter = 0.25
 shader_parameter/_VerticalJump = 0.0
 shader_parameter/_HorizontalShake = 0.0
 shader_parameter/_ColorDrift = 0.02
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pl66"]
+size = Vector3(1, 1.06653, 0.952881)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_oul6g")
@@ -55,7 +61,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="fetch_item_label" type="Label" parent="CanvasLayer/player_hud"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -71,6 +76,36 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "[E] FETCH ITEM"
 
+[node name="InventoryIcon" type="Control" parent="CanvasLayer/player_hud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_wjhpj")
+
+[node name="walkie_talkie_ic" type="TextureRect" parent="CanvasLayer/player_hud/InventoryIcon"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 7.0
+offset_right = 182.0
+offset_bottom = 111.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_bgq54")
+expand_mode = 1
+
+[node name="keycard_ic" type="TextureRect" parent="CanvasLayer/player_hud/InventoryIcon"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 109.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_482rp")
+expand_mode = 1
+
 [node name="dither_overlay_rect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_g1dw6")
 anchors_preset = 15
@@ -82,3 +117,10 @@ mouse_filter = 1
 
 [node name="mic_test" parent="CanvasLayer" instance=ExtResource("3_4pl66")]
 keywords = Array[String](["fetch"])
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.176208, 0.0235596)
+shape = SubResource("BoxShape3D_4pl66")
+debug_color = Color(7.21961e-07, 0.630324, 0.473694, 0.42)
