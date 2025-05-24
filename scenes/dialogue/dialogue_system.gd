@@ -21,6 +21,7 @@ var audio_duration: float = 0.0
 var audio_wait_timer: float = 0.0
 var waiting_for_audio: bool = false
 
+
 signal dialogue_finished
 signal line_finished
 signal dialogue_line_started(dialogue_id: int, dialogue_text: String, dialogue_type: String)
@@ -44,7 +45,7 @@ func _process(delta):
 	
 	if waiting_for_audio:
 		audio_wait_timer += delta
-		if audio_wait_timer >= audio_duration + 3.0:
+		if audio_wait_timer >= audio_duration:
 			waiting_for_audio = false
 			_check_line_completion()
 
