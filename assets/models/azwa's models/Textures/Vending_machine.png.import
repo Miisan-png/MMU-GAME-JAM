@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg2kk4ausekca"
-path.s3tc="res://.godot/imported/Vending_machine.png-cae8e6d1943b0af7d520beb70ada3a34.s3tc.ctex"
+path.s3tc="res://.godot/imported/Vending_machine.png-d521a45746225e7359af70e3614e3c49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/Vending_machine.png"
-dest_files=["res://.godot/imported/Vending_machine.png-cae8e6d1943b0af7d520beb70ada3a34.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/Vending_machine.png"
+dest_files=["res://.godot/imported/Vending_machine.png-d521a45746225e7359af70e3614e3c49.s3tc.ctex"]
 
 [params]
 

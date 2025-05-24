@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhhnuyoiu3xn2"
-path.s3tc="res://.godot/imported/Tiles.png-22d38590628102aca1cb5d8af5f2574e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Tiles.png-0ea13247f0c25158e688658359746b50.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-22d38590628102aca1cb5d8af5f2574e.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/Tiles.png"
+dest_files=["res://.godot/imported/Tiles.png-0ea13247f0c25158e688658359746b50.s3tc.ctex"]
 
 [params]
 

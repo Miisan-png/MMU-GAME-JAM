@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dydggk6fno31q"
-path.s3tc="res://.godot/imported/Trash.png-021199f531a3e70dc7b877427d59d0cb.s3tc.ctex"
+path.s3tc="res://.godot/imported/Trash.png-2ad86ee5c57e48f387bdc59154cfdf54.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/Trash.png"
-dest_files=["res://.godot/imported/Trash.png-021199f531a3e70dc7b877427d59d0cb.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/Trash.png"
+dest_files=["res://.godot/imported/Trash.png-2ad86ee5c57e48f387bdc59154cfdf54.s3tc.ctex"]
 
 [params]
 

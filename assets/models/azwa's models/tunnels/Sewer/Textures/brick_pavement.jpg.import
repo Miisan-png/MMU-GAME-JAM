@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsqqjf5m4j84w"
-path.s3tc="res://.godot/imported/brick_pavement.jpg-bb7a7f4d43866b2577bed811058d8f81.s3tc.ctex"
+path.s3tc="res://.godot/imported/brick_pavement.jpg-dfbf3b60b126cba85bf3eee8de78fac5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/brick_pavement.jpg"
-dest_files=["res://.godot/imported/brick_pavement.jpg-bb7a7f4d43866b2577bed811058d8f81.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/brick_pavement.jpg"
+dest_files=["res://.godot/imported/brick_pavement.jpg-dfbf3b60b126cba85bf3eee8de78fac5.s3tc.ctex"]
 
 [params]
 
