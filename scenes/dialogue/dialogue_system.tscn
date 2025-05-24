@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqcbm23wt6nmg"]
+
+[ext_resource type="PackedScene" uid="uid://btnjark67ptti" path="res://csv/csv_loader.tscn" id="1_3clsm"]
+[ext_resource type="Script" uid="uid://d1w2t1cjawkcf" path="res://scenes/dialogue/dialogue_system.gd" id="1_n7plo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwkx3"]
+bg_color = Color(0, 0, 0, 0.203922)
+
+[node name="DialogueSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7plo")
+
+[node name="DialogueBox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 213.0
+offset_right = 320.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gwkx3")
+
+[node name="ContentLabel" type="Label" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -21.0
+offset_right = 253.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.785181, 0.719318, 0.566278, 1)
+theme_override_font_sizes/font_size = 30
+text = "i wonder if she wen't to the bunker"
+
+[node name="CSV_LOADER" parent="." instance=ExtResource("1_3clsm")]
+
+[node name="voice_line_player" type="AudioStreamPlayer" parent="."]
+
+[node name="Node" type="Node" parent="."]

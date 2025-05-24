@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://ct71xvkiyeouk"]
+
+[sub_resource type="Curve" id="Curve_2usso"]
+_data = [Vector2(0.0860927, 0), 0.0, 0.0, 0, 0, Vector2(0.735099, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7es7j"]
+curve = SubResource("Curve_2usso")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eqdox"]
+lifetime_randomness = 0.2
+emission_shape_scale = Vector3(10, 10, 10)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_7es7j")
+color = Color(0.248163, 0.277655, 0.233204, 0.0784314)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8yxlm"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_8hqq1"]
+material = SubResource("StandardMaterial3D_8yxlm")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6kx0y"]
+
+[sub_resource type="Gradient" id="Gradient_ifg0y"]
+offsets = PackedFloat32Array(0, 0.941606, 1)
+colors = PackedColorArray(1.34766e-06, 0.634831, 0.755845, 0.0784314, 0.694204, 0.487564, 0.0441369, 0.0784314, 1.34766e-06, 0.634831, 0.755845, 0.0784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a7tw0"]
+gradient = SubResource("Gradient_ifg0y")
+
+[sub_resource type="Curve" id="Curve_iihed"]
+_data = [Vector2(0.0860927, 0), 0.0, 0.0, 0, 0, Vector2(0.735099, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_141a5"]
+curve = SubResource("Curve_iihed")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pr3qh"]
+lifetime_randomness = 0.8
+emission_shape_scale = Vector3(10, 10, 10)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_141a5")
+color = Color(0.737255, 0.478431, 0, 0.0784314)
+color_ramp = SubResource("GradientTexture1D_a7tw0")
+alpha_curve = SubResource("CurveTexture_6kx0y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp6t4"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_t7cms"]
+material = SubResource("StandardMaterial3D_tp6t4")
+size = Vector2(2.29, 3.035)
+
+[node name="RockColoredExplosion" type="Node3D"]
+
+[node name="Smaller debris" type="GPUParticles3D" parent="."]
+amount = 1000
+lifetime = 2.0
+explosiveness = 0.3
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_eqdox")
+draw_pass_1 = SubResource("SphereMesh_8hqq1")
+
+[node name="Smallerer Debrizzzz" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000499725, -0.0157795, 0.00155163)
+amount = 500
+lifetime = 4.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_pr3qh")
+draw_pass_1 = SubResource("QuadMesh_t7cms")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbta8pj3sh58g"]
+
+[ext_resource type="Script" uid="uid://mq3xaqn8bgxh" path="res://scenes/dialogue/dialogue_player.gd" id="1_qxwms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgf46"]
+
+[node name="DialoguePlayer" type="Node3D"]
+script = ExtResource("1_qxwms")
+
+[node name="ProximityArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ProximityArea"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_dgf46")
+debug_color = Color(0.321961, 0.400132, 1.92523e-07, 0.42)
+
+[connection signal="body_entered" from="ProximityArea" to="." method="_on_proximity_area_body_entered"]
+[connection signal="body_exited" from="ProximityArea" to="." method="_on_proximity_area_body_exited"]

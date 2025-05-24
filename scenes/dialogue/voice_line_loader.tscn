@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcee3a11ee7ii"]
+
+[ext_resource type="Script" uid="uid://gxvb670rsv1u" path="res://scenes/dialogue/voice_line_loader.gd" id="1_386o0"]
+
+[node name="voice_line_loader" type="Node"]
+script = ExtResource("1_386o0")
