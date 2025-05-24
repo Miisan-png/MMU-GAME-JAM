@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://m15c87o8t814"]
+
+[ext_resource type="Texture2D" uid="uid://cpvscdn3uqvpq" path="res://assets/fx_textures/point_circle.png" id="1_6f30d"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wsvti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f30d"]
+transparency = 1
+albedo_texture = ExtResource("1_6f30d")
+
+[node name="fx_fetch_zone" type="MeshInstance3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wsvti")
+surface_material_override/0 = SubResource("StandardMaterial3D_6f30d")

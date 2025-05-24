@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvgdvwduitdpj"]
 
-[ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://player/player_movement.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://entity/player/player_movement.gd" id="1_oul6g"]
 [ext_resource type="Shader" uid="uid://cwp3lteo8wjxy" path="res://shaders/sh_dither_overlay.gdshader" id="2_rkbax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+radius = 0.309057
+height = 1.52007
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
 shader = ExtResource("2_rkbax")
@@ -50,6 +52,23 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="fetch_item_label" type="Label" parent="CanvasLayer/player_hud"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.5
+offset_top = -361.0
+offset_right = 71.5
+offset_bottom = -333.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "[E] FETCH ITEM"
 
 [node name="dither_overlay_rect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_g1dw6")

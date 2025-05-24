@@ -1,6 +1,3 @@
 extends Node
 
-#Game State Variables
-var sv_game_start:bool = false #closed on start
-
- 
+var whistle_mode_enabled:bool = false

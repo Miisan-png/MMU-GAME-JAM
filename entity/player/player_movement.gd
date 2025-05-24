@@ -15,13 +15,21 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D
 @onready var collision_shape = $CollisionShape3D
 
+@export var crosshair_highlight_color:Color
+@onready var fetch_item_label: Label = $CanvasLayer/player_hud/fetch_item_label
+@onready var crosshair_rect: ColorRect = $CanvasLayer/player_hud/crosshair_rect
 
+@export var fetch_item_range = 20.0  
+var current_fetchable_item = null
+var is_fetch_raycast_active = false
 
 var current_speed = 0.0
 var is_crouched = false
 var current_interactable = null
 
 var target_collision_height = 0.0
+
+signal fetch_command_received(target_position: Vector3)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,6 +46,10 @@ func _unhandled_input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
+	if Input.is_action_just_pressed("fetch") and current_fetchable_item and GM.whistle_mode_enabled:
+		var fetch_position = current_fetchable_item.global_position
+		emit_signal("fetch_command_received", fetch_position)
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -46,16 +58,21 @@ func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_raycast()
 	move_and_slide()
+	handle_fetch_item_raycast()
 
 func handle_gravity(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 func handle_jump():
+	if GM.whistle_mode_enabled:
+		return
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_crouched:
 		velocity.y = jump_velocity
 
 func handle_crouch(delta: float):
+	if GM.whistle_mode_enabled:
+		return
 	if Input.is_action_pressed("crouch"):
 		if not is_crouched:
 			is_crouched = true
@@ -81,6 +98,11 @@ func is_ceiling_above() -> bool:
 	return result.size() > 0
 
 func handle_movement(delta: float):
+	if GM.whistle_mode_enabled:
+		velocity.x = 0
+		velocity.z = 0
+		return
+		
 	var input_dir = Vector2.ZERO
 	
 	if Input.is_action_pressed("left"):
@@ -109,10 +131,8 @@ func handle_movement(delta: float):
 	else:
 		velocity.x = 0
 		velocity.z = 0
-		
 
-
-func handle_raycast():
+func handle_raycast():	
 	var space_state = get_world_3d().direct_space_state
 	var from = camera.global_position
 	var to = from + camera.global_transform.basis.z * -interaction_range
@@ -146,5 +166,52 @@ func handle_raycast():
 			current_interactable.hide_labels()
 			current_interactable = null
 	
-	if Input.is_action_just_pressed("interact") and current_interactable:
+	if Input.is_action_just_pressed("interact") and current_interactable and not GM.whistle_mode_enabled:
 		current_interactable.interact()
+
+func handle_fetch_item_raycast():
+	is_fetch_raycast_active = GM.whistle_mode_enabled
+	
+	if not is_fetch_raycast_active:
+		if current_fetchable_item:
+			hide_fetch_ui()
+			current_fetchable_item = null
+		return
+	
+	var space_state = get_world_3d().direct_space_state
+	var from = camera.global_position
+	var to = from + camera.global_transform.basis.z * -fetch_item_range
+	
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var collider = result.collider
+		if collider is Area3D and collider.name == "FetchAbleItemArea":
+			var fetchable_item = collider.get_parent()
+			if current_fetchable_item != fetchable_item:
+				if current_fetchable_item:
+					hide_fetch_ui()
+				current_fetchable_item = fetchable_item
+				show_fetch_ui()
+		else:
+			if current_fetchable_item:
+				hide_fetch_ui()
+				current_fetchable_item = null
+	else:
+		if current_fetchable_item:
+			hide_fetch_ui()
+			current_fetchable_item = null
+
+func show_fetch_ui():
+	fetch_item_label.visible = true
+	fetch_item_label.text = "[F] FETCH ITEM"
+	fetch_item_label.modulate = crosshair_highlight_color
+	crosshair_rect.color = crosshair_highlight_color
+
+func hide_fetch_ui():
+	fetch_item_label.visible = false
+	crosshair_rect.color = Color.WHITE

@@ -1,52 +1,51 @@
-extends Node3D
+extends Node
 
-@onready var door_mesh: CSGBox3D = $CSGCombiner3D/DoorMesh
+@onready var output_label = $output
+@onready var run_button = $run_py
 
-@export var open_height: float = 3.0
-@export var open_speed: float = 2.0
-@export var open_duration: float = 3.0
-@export var ease_type: Tween.EaseType = Tween.EASE_OUT
-@export var transition_type: Tween.TransitionType = Tween.TRANS_QUART
+var process_id = -1
+var timer: Timer
+var is_recording = false
 
-var is_open: bool = false
-var original_position: Vector3
-var tween: Tween
-var close_timer: Timer
+func _on_run_py_pressed() -> void:
+	if not is_recording:
+		start_recording()
+	else:
+		stop_recording()
 
-func _ready():
-   original_position = door_mesh.position
-   
-   close_timer = Timer.new()
-   add_child(close_timer)
-   close_timer.timeout.connect(_auto_close_door)
+func start_recording():
+	var file = FileAccess.open("res://mic_system/transcription.txt", FileAccess.WRITE)
+	if file:
+		file.close()
+	
+	var bat_script_path = ProjectSettings.globalize_path("res://run_py.bat")
+	
+	process_id = OS.create_process(bat_script_path, [])
+	print("Started speech recognition script, process ID: ", process_id)
+	
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.1
+	timer.timeout.connect(_check_transcription_file)
+	timer.start()
+	
+	is_recording = true
+	run_button.text = "Stop"
 
-func _physics_process(delta: float) -> void:
-   if Input.is_action_just_pressed("interact"):
-   	action_door_open()
+func stop_recording():
+	if timer:
+		timer.queue_free()
+	if process_id != -1:
+		OS.execute("taskkill", ["/F", "/IM", "python.exe"])
+		process_id = -1
+	
+	is_recording = false
+	run_button.text = "Run"
+	print("Stopped speech recognition")
 
-func action_door_open():
-   if is_open:
-   	return
-   
-   if tween:
-   	tween.kill()
-   
-   tween = create_tween()
-   tween.set_ease(ease_type)
-   tween.set_trans(transition_type)
-   
-   tween.tween_property(door_mesh, "position", original_position + Vector3(0, open_height, 0), open_speed)
-   is_open = true
-   
-   close_timer.start(open_duration)
-
-func _auto_close_door():
-   if tween:
-   	tween.kill()
-   
-   tween = create_tween()
-   tween.set_ease(ease_type)
-   tween.set_trans(transition_type)
-   
-   tween.tween_property(door_mesh, "position", original_position, open_speed)
-   is_open = false
+func _check_transcription_file():
+	var file = FileAccess.open("res://mic_system/transcription.txt", FileAccess.READ)
+	if file:
+		var content = file.get_as_text()
+		file.close()
+		output_label.text = content
