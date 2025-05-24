@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dscq6t18g5dh2"
-path.s3tc="res://.godot/imported/automatic_ticket_gate.png-bb7ef5c170a4a85695b11a4c3d74e408.s3tc.ctex"
+path.s3tc="res://.godot/imported/automatic_ticket_gate.png-fbcde78b23f1925a0a1d0a8d7b30202f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/automatic_ticket_gate.png"
-dest_files=["res://.godot/imported/automatic_ticket_gate.png-bb7ef5c170a4a85695b11a4c3d74e408.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/automatic_ticket_gate.png"
+dest_files=["res://.godot/imported/automatic_ticket_gate.png-fbcde78b23f1925a0a1d0a8d7b30202f.s3tc.ctex"]
 
 [params]
 

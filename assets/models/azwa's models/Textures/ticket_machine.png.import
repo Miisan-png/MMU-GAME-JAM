@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc80hq858phdq"
-path.s3tc="res://.godot/imported/ticket_machine.png-9837841dcb25806a39c8772d2e0cb0e5.s3tc.ctex"
+path.s3tc="res://.godot/imported/ticket_machine.png-14d88fc7cd9be24e97bc1900daccb72c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/ticket_machine.png"
-dest_files=["res://.godot/imported/ticket_machine.png-9837841dcb25806a39c8772d2e0cb0e5.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/ticket_machine.png"
+dest_files=["res://.godot/imported/ticket_machine.png-14d88fc7cd9be24e97bc1900daccb72c.s3tc.ctex"]
 
 [params]
 

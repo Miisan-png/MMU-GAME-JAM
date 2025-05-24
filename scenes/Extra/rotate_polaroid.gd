@@ -1,33 +1,60 @@
 extends Node3D
 
-# Rotation speed (radians per second)
 @export var rotation_speed: float = 1.0
-
-# Rotation axes - set to true for axes you want to rotate around
 @export var rotate_x: bool = false
 @export var rotate_y: bool = true
 @export var rotate_z: bool = false
+@export var animation_speed: float = 2.0
+
+var original_position: Vector3 = Vector3(-0.004, -0.225, -0.738)
+var hidden_position: Vector3 = Vector3(-0.004, -0.759, -0.738)
+var current_t: float = 0.0
+var is_showing: bool = false
+var is_hiding: bool = false
 
 func _ready():
-	# Any initialization code can go here
-	pass
+	position = hidden_position
+	visible = false
 
 func _process(delta):
-	# Calculate rotation amount for this frame
 	var rotation_amount = rotation_speed * delta
 	
-	# Apply rotation to the specified axes
 	if rotate_x:
 		rotate_object_local(Vector3.RIGHT, rotation_amount)
 	if rotate_y:
 		rotate_object_local(Vector3.UP, rotation_amount)
 	if rotate_z:
 		rotate_object_local(Vector3.FORWARD, rotation_amount)
-
-# Alternative method using rotation_degrees for easier tweaking
-func _process_alternative(delta):
-	# Uncomment this method and comment out the above _process if you prefer degree-based rotation
-	var rotation_degrees_per_second = 30.0  # Adjust this value as needed
 	
-	if rotate_y:
-		rotation_degrees.y += rotation_degrees_per_second * delta
+	if is_showing:
+		current_t += delta * animation_speed
+		if current_t >= 1.0:
+			current_t = 1.0
+			is_showing = false
+		position = hidden_position.lerp(original_position, ease_out_cubic(current_t))
+	
+	if is_hiding:
+		current_t -= delta * animation_speed
+		if current_t <= 0.0:
+			current_t = 0.0
+			is_hiding = false
+			visible = false
+		position = hidden_position.lerp(original_position, ease_in_cubic(current_t))
+
+func ease_out_cubic(t: float) -> float:
+	return 1.0 - pow(1.0 - t, 3.0)
+
+func ease_in_cubic(t: float) -> float:
+	return t * t * t
+
+func show_polaroid():
+	position = hidden_position
+	visible = true
+	current_t = 0.0
+	is_showing = true
+	is_hiding = false
+
+func leave_polaroid():
+	current_t = 1.0
+	is_hiding = true
+	is_showing = false

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clxcdnwbeeyhi"
-path.s3tc="res://.godot/imported/brick_modern_01.jpg-315ecfa33eb7e26b51f72a0519422502.s3tc.ctex"
+path.s3tc="res://.godot/imported/brick_modern_01.jpg-c5d6dd3fb0a24a1ef8c4f7463a762b9e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/brick_modern_01.jpg"
-dest_files=["res://.godot/imported/brick_modern_01.jpg-315ecfa33eb7e26b51f72a0519422502.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/brick_modern_01.jpg"
+dest_files=["res://.godot/imported/brick_modern_01.jpg-c5d6dd3fb0a24a1ef8c4f7463a762b9e.s3tc.ctex"]
 
 [params]
 

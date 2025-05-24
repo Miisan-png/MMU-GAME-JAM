@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhy7k222xtyj7"
-path.s3tc="res://.godot/imported/Pipes.png-3eb43c41d9b81469a18862c1db29cea9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Pipes.png-53b3b324b0a6164bfeee76d9635c88c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/Pipes.png"
-dest_files=["res://.godot/imported/Pipes.png-3eb43c41d9b81469a18862c1db29cea9.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/Pipes.png"
+dest_files=["res://.godot/imported/Pipes.png-53b3b324b0a6164bfeee76d9635c88c8.s3tc.ctex"]
 
 [params]
 

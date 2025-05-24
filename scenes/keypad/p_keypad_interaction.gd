@@ -25,8 +25,9 @@ extends Node3D
 @onready var number_1: Label3D = $display_labels/number_1
 @onready var number_2: Label3D = $display_labels/number_2
 @onready var number_3: Label3D = $display_labels/number_3
-@onready var item_name_label: Label3D = $Item_Name_Label
 
+@onready var interact_label: Label3D = $Interact_Label
+@onready var item_name_label: Label3D = $Item_Name_Label
 
 @onready var puzzle_camera: Camera3D = $PuzzleCamera
 
@@ -48,6 +49,7 @@ var original_player_pos: Vector3
 var original_player_rot: Vector3
 var puzzle_camera_base_pos: Vector3
 var puzzle_camera_base_rot: Vector3
+var label_tween: Tween
 
 func _ready():
 	original_positions[key_1_mesh] = key_1_mesh.position
@@ -60,7 +62,7 @@ func _ready():
 	original_positions[key_8_mesh] = key_8_mesh.position
 	original_positions[key_9_mesh] = key_9_mesh.position
 	original_positions[key_0_mesh] = key_0_mesh.position
-	
+   
 	key_1_area.input_event.connect(_on_key_area_input_event.bind(1, key_1_mesh))
 	key_2_area.input_event.connect(_on_key_area_input_event.bind(2, key_2_mesh))
 	key_3_area.input_event.connect(_on_key_area_input_event.bind(3, key_3_mesh))
@@ -71,35 +73,39 @@ func _ready():
 	key_8_area.input_event.connect(_on_key_area_input_event.bind(8, key_8_mesh))
 	key_9_area.input_event.connect(_on_key_area_input_event.bind(9, key_9_mesh))
 	key_0_area.input_event.connect(_on_key_area_input_event.bind(0, key_0_mesh))
-	
+   
 	number_1.modulate = NORMAL_COLOR
 	number_2.modulate = NORMAL_COLOR
 	number_3.modulate = NORMAL_COLOR
-	item_name_label.hide()
-	
+   
+	interact_label.visible = false
+	item_name_label.visible = true
+	item_name_label.modulate.a = 1.0
+   
 	puzzle_camera.current = false
 	puzzle_camera_base_pos = puzzle_camera.global_position
 	puzzle_camera_base_rot = puzzle_camera.global_rotation
-	
+   
 	if puzzle_hud:
 		puzzle_hud.visible = false
 		return_button = puzzle_hud.get_node("return_btn")
 		if return_button:
 			return_button.pressed.connect(_on_return_btn_pressed)
-	
+   
 	update_display()
+
 
 func _input(event):
 	if event.is_action_pressed("interact") and player_in_area and not is_puzzle_active:
 		activate_puzzle()
-	
+   
 	if is_puzzle_active and event is InputEventMouseMotion:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var viewport_size = get_viewport().get_visible_rect().size
-		
+   	
 		var mouse_offset_x = (mouse_pos.x / viewport_size.x - 0.5) * 0.02
 		var mouse_offset_y = (mouse_pos.y / viewport_size.y - 0.5) * 0.02
-		
+   	
 		puzzle_camera.global_position = puzzle_camera_base_pos + Vector3(mouse_offset_x, mouse_offset_y, 0)
 		puzzle_camera.global_rotation = puzzle_camera_base_rot + Vector3(mouse_offset_y * 0.5, mouse_offset_x * 0.5, 0)
 
@@ -107,30 +113,44 @@ func _process(_delta):
 	if not is_opened and entered_code == CORRECT_KEY_CODE:
 		opened()
 
+func show_labels():
+	interact_label.visible = true
+	if label_tween:
+		label_tween.kill()
+	label_tween = create_tween()
+	label_tween.tween_property(interact_label, "modulate:a", 1.0, 0.3)
+
+func hide_labels():
+	if label_tween:
+		label_tween.kill()
+	label_tween = create_tween()
+	label_tween.tween_property(interact_label, "modulate:a", 0.0, 0.3)
+	label_tween.tween_callback(func(): interact_label.visible = false)
+
 func activate_puzzle():
 	is_puzzle_active = true
 	original_player_pos = player_camera.global_position
 	original_player_rot = player_camera.global_rotation
 	GM.in_keypad_state = true
-	item_name_label.hide()
-	
+	hide_labels()
+	item_name_label.visible = false
+   
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
+   
 	if puzzle_hud:
 		puzzle_hud.visible = true
-	
+   
 	var camera_tween = create_tween()
 	camera_tween.set_parallel(true)
-	
+   
 	camera_tween.tween_method(interpolate_camera_transform, 0.0, 1.0, 0.8)
 	camera_tween.set_trans(Tween.TRANS_CUBIC)
 	camera_tween.set_ease(Tween.EASE_IN_OUT)
-	
+   
 	camera_tween.tween_callback(func():
 		puzzle_camera.current = true
 		player_camera.current = false
 	).set_delay(0.8)
-
 func interpolate_camera_transform(progress: float):
 	if player_camera:
 		player_camera.global_position = original_player_pos.lerp(puzzle_camera_base_pos, progress)
@@ -139,15 +159,15 @@ func interpolate_camera_transform(progress: float):
 func deactivate_puzzle():
 	if not is_puzzle_active:
 		return
-		
+   	
 	is_puzzle_active = false
 	GM.in_keypad_state = false
-	
+   
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+   
 	if puzzle_hud:
 		puzzle_hud.visible = false
-	
+   
 	player_camera.current = true
 	puzzle_camera.current = false
 	player_camera.global_position = original_player_pos
@@ -166,25 +186,25 @@ func _on_key_area_input_event(camera: Node, event: InputEvent, event_position: V
 func press_key(key_number: int, key_mesh: MeshInstance3D):
 	if is_pressed:
 		return
-	
+   
 	is_pressed = true
-	
+   
 	entered_code[current_position] = key_number
 	current_position += 1
-	
+   
 	if current_position >= 3:
 		current_position = 0
-	
+   
 	update_display()
-	
+   
 	var tween = create_tween()
 	var original_pos = original_positions[key_mesh]
-	
+   
 	tween.tween_property(key_mesh, "position", original_pos + Vector3(0, 0, -0.011), 0.1)
 	tween.set_trans(Tween.TRANS_QUART)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.chain().tween_property(key_mesh, "position", original_pos, 0.2)
-	
+   
 	tween.tween_callback(func(): is_pressed = false)
 
 func update_display():
@@ -195,28 +215,28 @@ func update_display():
 func opened():
 	is_opened = true
 	print("Keypad opened successfully!")
-   
+  
 	var color_tween = create_tween()
 	color_tween.tween_property(number_1, "modulate", CORRECT_COLOR, 0.3)
 	color_tween.tween_interval(0.2)
 	color_tween.tween_property(number_2, "modulate", CORRECT_COLOR, 0.3)
 	color_tween.tween_interval(0.2)
 	color_tween.tween_property(number_3, "modulate", CORRECT_COLOR, 0.3)
-   
+  
 	color_tween.tween_callback(func():
 		print("Color animation complete!")
 		GM.keypad_true = true
 	)
 
-
-
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body.has_method("is_player"):
 		player_in_area = true
+		show_labels()
 
 func _on_detection_area_body_exited(body: Node3D) -> void:
 	if body.has_method("is_player"):
 		player_in_area = false
+		hide_labels()
 		if is_puzzle_active:
 			deactivate_puzzle()
 

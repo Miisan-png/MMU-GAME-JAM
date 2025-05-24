@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7xv42j7bw6n7"
-path.s3tc="res://.godot/imported/door_metal_01.jpg-f88314fb7dc2f70c6c46305827f781c0.s3tc.ctex"
+path.s3tc="res://.godot/imported/door_metal_01.jpg-b512d5b364cad09b469c1f32be19fcfd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/door_metal_01.jpg"
-dest_files=["res://.godot/imported/door_metal_01.jpg-f88314fb7dc2f70c6c46305827f781c0.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/door_metal_01.jpg"
+dest_files=["res://.godot/imported/door_metal_01.jpg-b512d5b364cad09b469c1f32be19fcfd.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2v26s1mqql3c"
-path.s3tc="res://.godot/imported/Trains_01.jpg-870bce027a55268169c9e5ca57a8cb87.s3tc.ctex"
+path.s3tc="res://.godot/imported/Trains_01.jpg-b2cafad0e618a63df60fd3eac0e33791.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/Trains_01.jpg"
-dest_files=["res://.godot/imported/Trains_01.jpg-870bce027a55268169c9e5ca57a8cb87.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/Trains_01.jpg"
+dest_files=["res://.godot/imported/Trains_01.jpg-b2cafad0e618a63df60fd3eac0e33791.s3tc.ctex"]
 
 [params]
 

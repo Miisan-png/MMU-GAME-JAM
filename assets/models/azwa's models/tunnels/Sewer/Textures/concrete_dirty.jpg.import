@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj0h4itcdiogh"
-path.s3tc="res://.godot/imported/concrete_dirty.jpg-cbccf96577a061032ab160ece306e8f5.s3tc.ctex"
+path.s3tc="res://.godot/imported/concrete_dirty.jpg-2c2fecfcb51913964526400f8beb389b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/tunnels/Sewer/textures/concrete_dirty.jpg"
-dest_files=["res://.godot/imported/concrete_dirty.jpg-cbccf96577a061032ab160ece306e8f5.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/tunnels/Sewer/Textures/concrete_dirty.jpg"
+dest_files=["res://.godot/imported/concrete_dirty.jpg-2c2fecfcb51913964526400f8beb389b.s3tc.ctex"]
 
 [params]
 
