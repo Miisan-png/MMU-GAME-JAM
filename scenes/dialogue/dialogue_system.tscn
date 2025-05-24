@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqcbm23wt6nmg"]
+[gd_scene load_steps=4 format=3 uid="uid://dqcbm23wt6nmg"]
 
 [ext_resource type="PackedScene" uid="uid://btnjark67ptti" path="res://csv/csv_loader.tscn" id="1_3clsm"]
 [ext_resource type="Script" uid="uid://d1w2t1cjawkcf" path="res://scenes/dialogue/dialogue_system.gd" id="1_n7plo"]
-[ext_resource type="AudioStream" uid="uid://dmixey487y5p5" path="res://audio/voice_lines/vl_2.mp3" id="3_mqf54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwkx3"]
 bg_color = Color(0, 0, 0, 0.203922)
@@ -50,6 +49,6 @@ text = "i wonder if she wen't to the bunker"
 
 [node name="CSV_LOADER" parent="." instance=ExtResource("1_3clsm")]
 
-[node name="voice_line_player" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, 1)
-stream = ExtResource("3_mqf54")
+[node name="voice_line_player" type="AudioStreamPlayer" parent="."]
+
+[node name="Node" type="Node" parent="."]

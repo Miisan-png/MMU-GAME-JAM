@@ -3,19 +3,23 @@ extends Control
 @onready var dialogue_box: Panel = $DialogueBox
 @onready var content_label: Label = $DialogueBox/ContentLabel
 @onready var csv_loader: CSVDialogueLoader = $CSV_LOADER
+@onready var voice_player: AudioStreamPlayer = $voice_line_player
 
-# Dialogue playback state
 var current_sequence: Array = []
 var current_line_index: int = 0
 var is_dialogue_active: bool = false
 var is_typing: bool = false
 
-# Typewriter effect settings
 var typing_speed: float = 0.05 
 var typing_timer: float = 0.0
 var current_text: String = ""
 var target_text: String = ""
 var current_char_index: int = 0
+
+var voice_lines: Dictionary = {}
+var audio_duration: float = 0.0
+var audio_wait_timer: float = 0.0
+var waiting_for_audio: bool = false
 
 signal dialogue_finished
 signal line_finished
@@ -23,6 +27,13 @@ signal dialogue_line_started(dialogue_id: int, dialogue_text: String, dialogue_t
 
 func _ready():
 	dialogue_box.visible = false
+	_load_voice_lines()
+
+func _load_voice_lines():
+	for i in range(1, 100):
+		var path = "res://audio/voice_lines/vl_%d.mp3" % i
+		if ResourceLoader.exists(path):
+			voice_lines[i] = load(path)
 
 func _process(delta):
 	if is_typing:
@@ -30,6 +41,12 @@ func _process(delta):
 		if typing_timer >= typing_speed:
 			typing_timer = 0.0
 			_type_next_character()
+	
+	if waiting_for_audio:
+		audio_wait_timer += delta
+		if audio_wait_timer >= audio_duration + 3.0:
+			waiting_for_audio = false
+			_check_line_completion()
 
 func play_dialogue(dialogue_id: int):
 	if is_dialogue_active:
@@ -41,11 +58,6 @@ func play_dialogue(dialogue_id: int):
 		print("No dialogue found for ID: ", dialogue_id)
 		return
 	
-	print("Starting dialogue sequence with ", current_sequence.size(), " lines")
-	for i in range(current_sequence.size()):
-		var line = current_sequence[i]
-		print("Line ", i, ": ", line.dialogue, " (", line.type, ")")
-	
 	current_line_index = 0
 	is_dialogue_active = true
 	dialogue_box.visible = true
@@ -54,13 +66,10 @@ func play_dialogue(dialogue_id: int):
 
 func _play_current_line():
 	if current_line_index >= current_sequence.size():
-		print("Reached end of sequence, ending dialogue")
 		_end_dialogue()
 		return
 	
 	var current_line = current_sequence[current_line_index]
-	print("Playing line ", current_line_index, ": ID=", current_line.id, " ", current_line.dialogue, " (", current_line.type, ")")
-	
 	dialogue_line_started.emit(current_line.id, current_line.dialogue, current_line.type)
 	
 	target_text = current_line.dialogue
@@ -68,8 +77,19 @@ func _play_current_line():
 	current_char_index = 0
 	content_label.text = ""
 	
+	_play_voice_line(current_line.id)
+	
 	is_typing = true
 	typing_timer = 0.0
+
+func _play_voice_line(dialogue_id: int):
+	if voice_lines.has(dialogue_id):
+		var audio_stream = voice_lines[dialogue_id]
+		voice_player.stream = audio_stream
+		voice_player.play()
+		audio_duration = audio_stream.get_length()
+	else:
+		audio_duration = 2.0
 
 func _type_next_character():
 	if current_char_index < target_text.length():
@@ -79,19 +99,15 @@ func _type_next_character():
 	else:
 		is_typing = false
 		line_finished.emit()
-		_check_line_completion()
+		waiting_for_audio = true
+		audio_wait_timer = 0.0
 
 func _check_line_completion():
 	var current_line = current_sequence[current_line_index]
-	print("Completed line: ", current_line.dialogue, " (Type: ", current_line.type, ")")
-	
-	await get_tree().create_timer(1.0).timeout
 	
 	if current_line.type == "END":
-		print("Ending dialogue sequence")
 		_end_dialogue()
 	else:
-		print("Moving to next line...")
 		_next_line()
 
 func _next_line():
@@ -101,6 +117,8 @@ func _next_line():
 func _end_dialogue():
 	is_dialogue_active = false
 	is_typing = false
+	waiting_for_audio = false
+	voice_player.stop()
 	dialogue_box.visible = false
 	current_sequence.clear()
 	dialogue_finished.emit()
@@ -110,7 +128,8 @@ func skip_typing():
 		is_typing = false
 		content_label.text = target_text
 		line_finished.emit()
-		_check_line_completion()
+		waiting_for_audio = true
+		audio_wait_timer = 0.0
 
 func _input(event):
 	if not is_dialogue_active:
