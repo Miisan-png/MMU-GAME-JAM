@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://vacsc4q56qx4" path="res://assets/texture/white box.jpg" id="1_u7l3l"]
 [ext_resource type="PackedScene" uid="uid://51ariux8td1f" path="res://assets/models/SK_Mannequin.FBX" id="2_aangx"]
-[ext_resource type="PackedScene" uid="uid://bhemw6wy8170w" path="res://assets/models/polaroid.tscn" id="3_1h2pi"]
-[ext_resource type="PackedScene" uid="uid://dcn0lyt7jmwm2" path="res://assets/models/walkie.blend" id="4_ntio2"]
+[ext_resource type="PackedScene" uid="uid://bhemw6wy8170w" path="res://assets/models/polaroid/polaroid.tscn" id="3_1h2pi"]
+[ext_resource type="PackedScene" uid="uid://dcn0lyt7jmwm2" path="res://assets/models/walkie talkie/walkie.blend" id="4_ntio2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aixo0"]
 albedo_color = Color(0.00455826, 0, 0.206249, 1)

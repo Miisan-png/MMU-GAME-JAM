@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dipa7k046grc5"]
+
+[ext_resource type="PackedScene" uid="uid://cp4vflh7ffi6d" path="res://assets/models/forklift/Low Poly Forklift.fbx" id="1_dtmi2"]
+
+[node name="Low Poly Forklift" instance=ExtResource("1_dtmi2")]
