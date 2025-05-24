@@ -118,9 +118,13 @@ mouse_filter = 1
 [node name="mic_test" parent="CanvasLayer" instance=ExtResource("3_4pl66")]
 keywords = Array[String](["fetch"])
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="CollectArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.176208, 0.0235596)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectArea"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.176208, 0.0235596)
 shape = SubResource("BoxShape3D_4pl66")
 debug_color = Color(7.21961e-07, 0.630324, 0.473694, 0.42)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.367266, 0.518767, -0.934329)
+gizmo_extents = 0.14

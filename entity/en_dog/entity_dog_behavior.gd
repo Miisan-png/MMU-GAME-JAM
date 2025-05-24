@@ -82,6 +82,12 @@ var fetch_wait_duration: float = 2.0
 var fetch_speed: float = 2.0
 var is_returning: bool = false
 
+var has_fetched_item: bool = false
+var fetched_item_node: Node3D = null
+var collect_radius: float = 2.0
+var target_item_node: Node3D = null
+@export var delivery_distance: float = 0.5
+
 signal fetch_command_received(target_position: Vector3)
 
 func _ready():
@@ -329,7 +335,10 @@ func set_fetch_state():
 	current_state = AnimationState.FETCH
 	target_walk_blend = 1.0
 	target_sit_blend = 0.0
-	label_3d.text = "State: FETCH"
+	if has_fetched_item:
+		label_3d.text = "State: FETCH - Returning Item"
+	else:
+		label_3d.text = "State: FETCH - Going to Item"
 	state_change_cooldown = 0.1
 
 func toggle_orders_mode():
@@ -434,36 +443,63 @@ func _on_fetch_command_received(target_position: Vector3):
 func start_fetch(target_position: Vector3):
 	is_fetching = true
 	is_returning = false
+	has_fetched_item = false
+	fetched_item_node = null
+	target_item_node = null
 	fetch_target = target_position
 	fetch_wait_timer = 0.0
 	is_leading = false
 	is_wandering = false
+	
+	find_target_item(target_position)
 	set_fetch_state()
+
+func find_target_item(target_position: Vector3):
+	var space_state = get_world_3d().direct_space_state
+	
+	var sphere_query = PhysicsShapeQueryParameters3D.new()
+	var sphere_shape = SphereShape3D.new()
+	sphere_shape.radius = 5.0
+	sphere_query.shape = sphere_shape
+	sphere_query.transform.origin = target_position
+	sphere_query.collide_with_areas = true
+	sphere_query.collide_with_bodies = true
+	
+	var intersections = space_state.intersect_shape(sphere_query)
+	
+	for intersection in intersections:
+		var collider = intersection.collider
+		if collider is Area3D and collider.name == "FetchAbleItemArea":
+			var item = collider.get_parent()
+			if item and is_instance_valid(item):
+				target_item_node = item
+				fetch_target = item.global_position
+				print("Found target item: ", item.name)
+				break
 
 func handle_fetch_behavior(delta):
 	if not is_returning:
+		if target_item_node and is_instance_valid(target_item_node):
+			fetch_target = target_item_node.global_position
+		
 		var distance_to_target = global_position.distance_to(fetch_target)
 		
-		if distance_to_target > 1.0:
-			var direction = (fetch_target - global_position).normalized()
-			current_speed = lerp(current_speed, fetch_speed, acceleration * delta)
-			velocity.x = direction.x * current_speed
-			velocity.z = direction.z * current_speed
-			
-			target_rotation = atan2(direction.x, direction.z)
-			rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
-			
-			set_walk_state()
-		else:
-			current_speed = lerp(current_speed, 0.0, deceleration * delta)
-			velocity.x = 0
-			velocity.z = 0
-			set_idle_state()
-			
+		var direction = (fetch_target - global_position).normalized()
+		current_speed = lerp(current_speed, fetch_speed, acceleration * delta)
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
+		
+		target_rotation = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
+		
+		set_walk_state()
+		
+		if has_fetched_item:
 			fetch_wait_timer += delta
 			if fetch_wait_timer >= fetch_wait_duration:
 				is_returning = true
 				fetch_wait_timer = 0.0
+				set_fetch_state()
 	else:
 		var distance_to_player = global_position.distance_to(player.global_position)
 		
@@ -481,9 +517,44 @@ func handle_fetch_behavior(delta):
 			current_speed = lerp(current_speed, 0.0, deceleration * delta)
 			velocity.x = 0
 			velocity.z = 0
-			is_fetching = false
-			is_returning = false
-			set_orders_state()
+			
+			if has_fetched_item:
+				deliver_item_to_player()
+				is_fetching = false
+				is_returning = false
+				has_fetched_item = false
+				fetched_item_node = null
+				target_item_node = null
+				set_orders_state()
+			else:
+				is_fetching = false
+				is_returning = false
+				set_orders_state()
+
+func collect_fetchable_item():
+	if target_item_node and is_instance_valid(target_item_node) and not has_fetched_item:
+		has_fetched_item = true
+		fetched_item_node = target_item_node
+		
+		target_item_node.queue_free()
+		
+		print("Dog collected fetchable item: ", target_item_node.name)
+		
+		current_speed = 0.0
+		velocity.x = 0
+		velocity.z = 0
+		set_idle_state()
+
+func deliver_item_to_player():
+	if has_fetched_item:
+		GM.p_keycard_collected = true
+		print("Dog delivered keycard to player!")
+		
+		label_3d.text = "State: DELIVERED ITEM!"
+		
+		has_fetched_item = false
+		fetched_item_node = null
+		target_item_node = null
 
 func _on_player_near_trigger_body_entered(body: Node3D) -> void:
 	if body == player:
@@ -498,3 +569,13 @@ func _on_player_near_trigger_body_exited(body: Node3D) -> void:
 
 func _collect_keycard():
 	GM.p_keycard_collected = true
+
+func _on_item_collect_area_area_entered(area: Area3D) -> void:
+	if is_fetching and not is_returning and not has_fetched_item:
+		if area.name == "FetchAbleItemArea":
+			var item = area.get_parent()
+			if item == target_item_node:
+				collect_fetchable_item()
+
+func _on_item_collect_area_area_exited(area: Area3D) -> void:
+	pass

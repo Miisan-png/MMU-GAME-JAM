@@ -6,6 +6,11 @@ func _ready():
 	walkie_talkie_ic.scale = Vector2.ZERO
 	keycard_ic.scale = Vector2.ZERO
 
+func _physics_process(delta: float) -> void:
+	if GM.p_keycard_collected == true:
+		show_icon("keycard")
+
+
 func show_icon(icon_name: String):
 	var icon_to_show: TextureRect
 	
