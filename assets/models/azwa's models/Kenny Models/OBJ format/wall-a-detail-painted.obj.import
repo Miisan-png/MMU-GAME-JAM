@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cyc20wt1f8ohq"
+path="res://.godot/imported/wall-a-detail-painted.obj-65fbc9c9df4832954e7dc730fdfd1cd4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-a-detail-painted.obj-65fbc9c9df4832954e7dc730fdfd1cd4.mesh"]
+
+source_file="res://assets/models/azwa's models/Kenny Models/OBJ format/wall-a-detail-painted.obj"
+dest_files=["res://.godot/imported/wall-a-detail-painted.obj-65fbc9c9df4832954e7dc730fdfd1cd4.mesh", "res://.godot/imported/wall-a-detail-painted.obj-65fbc9c9df4832954e7dc730fdfd1cd4.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

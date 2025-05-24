@@ -1,13 +1,13 @@
 [gd_scene load_steps=329 format=4 uid="uid://dfoqx5qci1oon"]
 
-[ext_resource type="Script" uid="uid://n5onyt67med0" path="res://test/test_map.gd" id="1_76uff"]
+[ext_resource type="Script" path="res://test/test_map.gd" id="1_76uff"]
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="1_hpqtr"]
 [ext_resource type="PackedScene" uid="uid://cbkbw4h4byuqn" path="res://scenes/IRP/irp_door.tscn" id="2_v58xu"]
 [ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://entity/player/player_movement.gd" id="3_8gr37"]
 [ext_resource type="PackedScene" uid="uid://chw02ov6366ei" path="res://scenes/Extra/IntroObjectivePlayer.tscn" id="4_g8vfi"]
 [ext_resource type="Script" uid="uid://c4b3d7yaojv8x" path="res://entity/player/picked_walkie_talkie.gd" id="4_jm4dm"]
 [ext_resource type="Script" uid="uid://bab6d157pd4lg" path="res://scripts/Managers/Inventory_Manager.gd" id="5_kpt53"]
-[ext_resource type="Script" uid="uid://c0fxm5woe7suv" path="res://scenes/Extra/rotate_polaroid.gd" id="5_u6aul"]
+[ext_resource type="Script" path="res://scenes/Extra/rotate_polaroid.gd" id="5_u6aul"]
 [ext_resource type="Texture2D" uid="uid://468nt77e3wm1" path="res://assets/placeholder/Metro_PSX/Textures/metal_02.png" id="5_xaagg"]
 [ext_resource type="Texture2D" uid="uid://dyrp7go1ykqib" path="res://assets/placeholder/Metro_PSX/Textures/metal.jpg" id="6_0308s"]
 [ext_resource type="Texture2D" uid="uid://dmrrpggbon78t" path="res://assets/texture/Polaroidmodel.png" id="6_tr2nj"]
@@ -53,7 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://7bastkyxjgrq" path="res://assets/models/keypad/source/SecurityNumPad_1.png" id="38_iyn34"]
 [ext_resource type="PackedScene" uid="uid://cwkadlx5u862j" path="res://scenes/Extra/fade_in.tscn" id="39_ls4ae"]
 [ext_resource type="PackedScene" uid="uid://cbta8pj3sh58g" path="res://scenes/dialogue/dialogue_player.tscn" id="51_jm4dm"]
-[ext_resource type="Script" uid="uid://dju7qlo8fyojr" path="res://scenes/Extra/polaroid_trigger.gd" id="52_kpt53"]
+[ext_resource type="Script" path="res://scenes/Extra/polaroid_trigger.gd" id="52_kpt53"]
 [ext_resource type="Script" uid="uid://mq3xaqn8bgxh" path="res://scenes/dialogue/dialogue_player.gd" id="55_tr2nj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en6xy"]
@@ -6357,34 +6357,44 @@ delivery_distance = 1.0
 [node name="Skeleton3D" parent="EN_DOG/metarig" index="0"]
 bones/0/position = Vector3(0, 0.7731, -0.0319)
 bones/0/rotation = Quaternion(-0.49192, -0.507961, 0.49221, 0.507661)
-bones/2/rotation = Quaternion(0.00158557, 0.0026023, 0.161228, 0.986913)
-bones/3/rotation = Quaternion(-0.00352932, -0.0238688, -0.113001, 0.993302)
-bones/5/rotation = Quaternion(-0.000144308, 0.00113951, -0.125045, 0.99215)
+bones/1/rotation = Quaternion(-0.000253698, -0.00593586, -0.0388474, 0.999227)
+bones/2/rotation = Quaternion(0.00239431, 0.00255745, 0.243465, 0.969903)
+bones/3/rotation = Quaternion(-0.000914314, -0.0240125, -0.0292746, 0.999283)
+bones/4/rotation = Quaternion(-0.00358469, 0.0262631, -0.124542, 0.99186)
+bones/5/rotation = Quaternion(-0.000175567, 0.00113515, -0.152128, 0.98836)
 bones/5/scale = Vector3(0.999999, 1, 1)
-bones/6/rotation = Quaternion(-0.000382521, -0.00596793, -0.0639012, 0.997938)
-bones/9/rotation = Quaternion(-0.483918, 0.520219, 0.487857, 0.50714)
-bones/10/rotation = Quaternion(0.820214, -0.00229202, 0.0251456, 0.5715)
-bones/11/rotation = Quaternion(-0.716479, 0.00661756, -0.0216066, 0.697242)
-bones/12/rotation = Quaternion(0.0057569, 0.777674, -0.62864, -0.00123055)
-bones/13/rotation = Quaternion(-0.61509, 0.346052, 0.622469, 0.338296)
-bones/14/rotation = Quaternion(0.770515, 0.00384845, -0.0305855, 0.636676)
-bones/15/rotation = Quaternion(-0.828652, -0.00838425, 0.0234849, 0.559208)
-bones/16/rotation = Quaternion(-0.00606987, 0.994734, -0.102292, 0.00175864)
-bones/17/position = Vector3(0, 0.723414, -0.0319)
-bones/21/rotation = Quaternion(-0.225067, -2.56529e-07, -6.89279e-08, 0.974343)
+bones/6/rotation = Quaternion(-0.000606015, -0.00594943, -0.101238, 0.994844)
+bones/8/rotation = Quaternion(0.757082, 0.608475, 0.236965, -0.0207782)
+bones/9/rotation = Quaternion(-0.480805, 0.523233, 0.484809, 0.509916)
+bones/10/rotation = Quaternion(0.771505, -0.00279712, 0.0234178, 0.635786)
+bones/11/rotation = Quaternion(-0.671218, 0.00679179, -0.0204737, 0.740946)
+bones/12/rotation = Quaternion(0.00569675, 0.792285, -0.610124, -0.000786815)
+bones/13/rotation = Quaternion(-0.612734, 0.350108, 0.620206, 0.342529)
+bones/14/rotation = Quaternion(0.736154, 0.00483538, -0.0283356, 0.676203)
+bones/15/rotation = Quaternion(-0.776414, -0.00839778, 0.0227011, 0.629759)
+bones/16/rotation = Quaternion(-0.00537547, 0.98544, -0.169928, 0.00162752)
+bones/17/position = Vector3(0, 0.772308, -0.0319)
+bones/17/rotation = Quaternion(0.647089, 0, 0, 0.762414)
+bones/18/rotation = Quaternion(0.032562, -1.98698e-07, 1.89436e-08, 0.99947)
+bones/19/rotation = Quaternion(0.0122192, 1.03736e-06, -2.61574e-08, 0.999925)
+bones/20/rotation = Quaternion(-0.290376, -5.48881e-07, -3.03755e-07, 0.956913)
+bones/21/rotation = Quaternion(-0.142227, -2.61437e-07, -4.70233e-08, 0.989834)
 bones/22/rotation = Quaternion(0.5144, 1.21823e-07, 6.25653e-08, 0.85755)
-bones/23/rotation = Quaternion(0.543641, 5.08609e-09, 2.76904e-09, 0.839318)
+bones/23/rotation = Quaternion(0.540943, 5.07717e-09, 2.78536e-09, 0.841059)
+bones/24/rotation = Quaternion(-0.233657, -0.0707378, -0.222257, 0.943929)
+bones/25/rotation = Quaternion(0.094573, 0.00422042, 0.195979, 0.976028)
 bones/26/rotation = Quaternion(-0.233657, 0.0707375, 0.222257, 0.943929)
+bones/27/rotation = Quaternion(0.094573, -0.00422042, -0.195979, 0.976028)
 bones/28/rotation = Quaternion(0.572439, 0.159976, -0.0871295, 0.799456)
-bones/29/rotation = Quaternion(0.437098, 0.00847605, 0.166544, 0.88382)
+bones/29/rotation = Quaternion(0.32914, -0.0181335, 0.179855, 0.926817)
 bones/29/scale = Vector3(1, 0.999999, 1)
-bones/30/rotation = Quaternion(-0.416418, -0.0210284, 0.0604025, 0.906921)
-bones/31/rotation = Quaternion(-0.214302, 0.0285321, -0.000738677, 0.97635)
-bones/32/rotation = Quaternion(0.0792291, 0.933662, -0.348637, 0.0212171)
-bones/34/rotation = Quaternion(0.347449, 0.0133314, -0.169879, 0.922086)
-bones/35/rotation = Quaternion(-0.389859, 0.0219767, -0.0529908, 0.919086)
-bones/36/rotation = Quaternion(-0.160188, -0.0292989, 0.00295827, 0.986647)
-bones/37/rotation = Quaternion(-0.11683, 0.935979, -0.329837, -0.0387441)
+bones/30/rotation = Quaternion(-0.205569, -0.0215147, 0.0287555, 0.977984)
+bones/31/rotation = Quaternion(-0.238205, 0.0302395, -0.0019543, 0.970742)
+bones/32/rotation = Quaternion(0.0750482, 0.892344, -0.444398, 0.0244914)
+bones/34/rotation = Quaternion(0.253712, 0.0343007, -0.178713, 0.950008)
+bones/35/rotation = Quaternion(-0.20094, 0.0226242, -0.0266627, 0.978979)
+bones/36/rotation = Quaternion(-0.186799, -0.0301428, 0.00288994, 0.981932)
+bones/37/rotation = Quaternion(-0.11198, 0.908599, -0.399948, -0.0441535)
 bones/39/rotation = Quaternion(0.295446, 7.0226e-08, -1.26004e-07, 0.95536)
 
 [node name="IRP_Door_2" parent="." instance=ExtResource("33_dv2w7")]

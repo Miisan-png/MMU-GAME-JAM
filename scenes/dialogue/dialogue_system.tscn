@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqcbm23wt6nmg"]
 
-[ext_resource type="PackedScene" uid="uid://btnjark67ptti" path="res://csv/csv_loader.tscn" id="1_3clsm"]
+[ext_resource type="PackedScene" uid="uid://d28grstriji3l" path="res://csv/csv_loader.tscn" id="1_3clsm"]
 [ext_resource type="Script" uid="uid://d1w2t1cjawkcf" path="res://scenes/dialogue/dialogue_system.gd" id="1_n7plo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwkx3"]

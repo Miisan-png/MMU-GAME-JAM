@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckb66srusdf7t"]
+[gd_scene load_steps=5 format=3 uid="uid://br0gm02ruur7k"]
 
-[ext_resource type="PackedScene" uid="uid://cxd2i55qjm6mm" path="res://assets/models/azwa's models/Garbage Bag.blend" id="1_lpbxq"]
-[ext_resource type="Texture2D" uid="uid://ck5wufw18siqo" path="res://assets/models/azwa's models/Textures/garbage_bag_full.png" id="2_8abr2"]
+[ext_resource type="PackedScene" uid="uid://b27gdtq24h50a" path="res://assets/models/azwa's models/garbage/Garbage Bag.blend" id="1_v1bbx"]
+[ext_resource type="Texture2D" uid="uid://b1mutrq0k1lau" path="res://assets/models/azwa's models/garbage/garbage_bag_full.png" id="2_5mnge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whkjs"]
-albedo_texture = ExtResource("2_8abr2")
+albedo_texture = ExtResource("2_5mnge")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfw65"]
-albedo_texture = ExtResource("2_8abr2")
+albedo_texture = ExtResource("2_5mnge")
 
-[node name="Garbage Bag" instance=ExtResource("1_lpbxq")]
+[node name="Garbage Bag" instance=ExtResource("1_v1bbx")]
 
 [node name="garbage_bag_1" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_whkjs")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://btnjark67ptti"]
+[gd_scene load_steps=2 format=3 uid="uid://d28grstriji3l"]
 
-[ext_resource type="Script" uid="uid://b178w5au3r22v" path="res://csv/csv_loader.gd" id="1_v8k4u"]
+[ext_resource type="Script" path="res://csv/csv_loader.gd" id="1_v8k4u"]
 
 [node name="CSV_LOADER" type="Node"]
 script = ExtResource("1_v8k4u")

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://co7vpep7u1brq"
+path="res://.godot/imported/tree-park-large.obj-78cc686a8ce8e401b346e426b75f4d02.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree-park-large.obj-78cc686a8ce8e401b346e426b75f4d02.mesh"]
+
+source_file="res://assets/models/azwa's models/Kenny Models/OBJ format/tree-park-large.obj"
+dest_files=["res://.godot/imported/tree-park-large.obj-78cc686a8ce8e401b346e426b75f4d02.mesh", "res://.godot/imported/tree-park-large.obj-78cc686a8ce8e401b346e426b75f4d02.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
