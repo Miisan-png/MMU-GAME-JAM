@@ -21,6 +21,7 @@ extends CharacterBody3D
 @onready var player_hud: Control = $CanvasLayer/player_hud
 @onready var mic_system: Control = $CanvasLayer/mic_test
 @onready var picked_walkie_talkie: Node3D = $Head/PickedWalkieTalkie
+@onready var picked_polaroid_toggle: Node3D = $Head/Camera3D/PickedPolaroidToggle
 
 
 @export var fetch_item_range = 20.0

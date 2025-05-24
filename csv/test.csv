@@ -4,3 +4,8 @@ ID,DIALOGUE,DIALOGUE_TYPE
 2,TEST,MID
 3,TEST,MID
 4,TEST,END
+5,this place seems familiar…,ENTRY
+6,I was here before…,END
+7,…....,ENTRY
+8,I wonder if she made it out..,MID
+9,now its just you and me buddy,END

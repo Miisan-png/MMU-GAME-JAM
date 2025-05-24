@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddha2t26xamp5"]
+
+[ext_resource type="Texture2D" uid="uid://b8edl5w68f8ko" path="res://scenes/FX/snow_texture.png" id="1_nqr5d"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ooc8r"]
+emission_shape = 3
+emission_box_extents = Vector3(100, 15, 100)
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 15.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -1, 0)
+linear_accel_min = 8.0
+linear_accel_max = 12.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = 100.0
+scale_min = 0.2
+scale_max = 0.4
+turbulence_enabled = true
+turbulence_noise_scale = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t62fj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_nqr5d")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_5ml6p"]
+material = SubResource("StandardMaterial3D_t62fj")
+size = Vector2(0.3, 0.3)
+
+[node name="snow" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.7395, 9.1183, -58.0613)
+amount = 6000
+lifetime = 8.0
+randomness = 1.0
+visibility_aabb = AABB(-4, -4, -4, 200, 20, 200)
+process_material = SubResource("ParticleProcessMaterial_ooc8r")
+draw_pass_1 = SubResource("QuadMesh_5ml6p")

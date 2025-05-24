@@ -52,8 +52,7 @@ func _check_transcription_file():
 			if keyword_lower != "" and content.find(keyword_lower) != -1:
 				print("Keyword detected: '", keyword, "'")
 				
-				# Trigger action specifically for "fetch"
-				if keyword_lower == "fetch":
+				if keyword_lower == "fetch" or keyword_lower == "fet":
 					trigger_action(keyword)
 		
 func add_keyword(keyword: String):

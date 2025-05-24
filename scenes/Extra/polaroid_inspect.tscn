@@ -1,24 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://d14u4hdopx41e"]
+[gd_scene load_steps=13 format=4 uid="uid://d14u4hdopx41e"]
 
 [ext_resource type="Script" uid="uid://c0fxm5woe7suv" path="res://scenes/Extra/rotate_polaroid.gd" id="1_0nn6q"]
 [ext_resource type="Texture2D" uid="uid://dmrrpggbon78t" path="res://assets/texture/Polaroidmodel.png" id="2_7j8ri"]
 [ext_resource type="Script" uid="uid://btlrpenhv7yb2" path="res://scripts/Utils/btn_animator.gd" id="3_7j8ri"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0nn6q"]
-
-[sub_resource type="Sky" id="Sky_7j8ri"]
-sky_material = SubResource("ProceduralSkyMaterial_0nn6q")
-
-[sub_resource type="Environment" id="Environment_vlbua"]
-background_mode = 2
-sky = SubResource("Sky_7j8ri")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2452a"]
 resource_name = "Material.001"
 cull_mode = 2
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_wm7c0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_7j8ri"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -48,7 +39,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AADl9EgNVNUAAAAAAABU1QAA//8AAFTVAAD/////VNUAAAA3SA1U1QAA5fSS9FTVAAAAAP//VNUAAAA3kvRU1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP////8AN5L0VNX///////9U1f//5fSS9FTV///l9EgNVNX//wAA//9U1f////8AAFTV//8AAAAAVNX//wA3SA1U1f//AAD///+/AAD//////7//////////vwAAAAD///+/AAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7//////AAD//wAA////////AAD//wAA/////////////wAAADdIDf8////l9EgN/z///wA3SA3/PwAA5fRIDf8/AADl9JL0AAD//wA3kvQAAP//5fSS9AAAAAAAN5L0AAD//wA3SA3/PwAAADeS9P8/AAAAN0gN/z///wA3kvT/PwAA5fSS9AAA///l9EgNAAAAAOX0SA0AAP//5fSS9AAAVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/qiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoqqir/////////////////////AAD/fwAA/38AAP9/AAD/f/9//7//f/+//3//v/9//7///////////////////////7//v/+//7//v/+//7//v////3////9/////f////3//f/8//3//P/9//z//f/8/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_wm7c0")
+shadow_mesh = SubResource("ArrayMesh_7j8ri")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybv14"]
 albedo_texture = ExtResource("2_7j8ri")
@@ -58,7 +49,7 @@ resource_name = "Material.004"
 cull_mode = 2
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_a5uos"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vlbua"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -88,10 +79,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7//fwAA/38AAP9/AAD/fwAA/3//f/9//3//f/9//3//f1RVVFVUVVRVVFVUVVRVVFVU1aoqVNWqKlTVqipU1aoq")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_a5uos")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nn6q"]
-bg_color = Color(0, 0, 0, 0.376471)
+shadow_mesh = SubResource("ArrayMesh_vlbua")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nn6q"]
 
@@ -105,11 +93,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-
-[node name="Camera3D" type="Camera3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vlbua")
 
 [node name="polaroid" type="Node3D" parent="."]
 transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, -0.138934, -0.779697)
@@ -125,38 +108,6 @@ transform = Transform3D(0.00256707, 0, 0, 0, 0.741789, 0, 0, 0, 0.646194, 0, 1.0
 material_override = SubResource("StandardMaterial3D_ybv14")
 mesh = SubResource("ArrayMesh_ypo1s")
 skeleton = NodePath("")
-
-[node name="DialogueBox" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = 222.0
-offset_right = 345.0
-offset_bottom = 292.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0nn6q")
-
-[node name="ContentLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -253.5
-offset_top = 236.5
-offset_right = 253.5
-offset_bottom = 278.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.785181, 0.719318, 0.566278, 1)
-theme_override_font_sizes/font_size = 30
-text = "[only thing i have left is you and this...]"
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("buttons")]
 anchors_preset = 0
