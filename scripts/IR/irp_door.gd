@@ -1,6 +1,7 @@
 extends Node3D
 
-@onready var door_mesh: CSGBox3D = $CSGCombiner3D/DoorMesh
+@onready var door_mesh: MeshInstance3D = $CSGCombiner3D/DoorMesh
+
 
 @export var open_height: float = 3.0
 @export var open_speed: float = 1.2
