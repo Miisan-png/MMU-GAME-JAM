@@ -52,10 +52,13 @@ func _emergency_close():
 	tween.tween_property(door_mesh, "position", original_position, emergency_close_speed)
 	is_open = false
 
-func _on_player_trigger_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player" and is_open:
-		_emergency_close()
 
-func _on_player_trigger_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player" and is_open:
+func _on_player_trigger_area_area_entered(area: Area3D) -> void:
+	if area.name == "pb" and is_open:
+		_emergency_close()
+		print("player here")
+
+
+func _on_player_trigger_area_area_exited(area: Area3D) -> void:
+	if area.name == "pb" and is_open:
 		_emergency_close()

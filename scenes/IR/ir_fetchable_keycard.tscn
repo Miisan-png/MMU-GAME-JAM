@@ -123,7 +123,7 @@ transform = Transform3D(0.0162494, 0, 0, 0, 0.419326, 0, 0, 0, 0.658059, 0, 0, 0
 mesh = SubResource("ArrayMesh_liy72")
 skeleton = NodePath("")
 
-[node name="FetchAbleItemArea" type="Area3D" parent="."]
+[node name="FetchAbleItemArea" type="Area3D" parent="." groups=["fetchable_items"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FetchAbleItemArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0986938, 0.0397931, -0.418213)

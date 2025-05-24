@@ -9,6 +9,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if GM.p_keycard_collected == true:
 		show_icon("keycard")
+	if GM.i_walkie_picked_up == true:
+		show_icon("walkie_talkie")
 
 
 func show_icon(icon_name: String):

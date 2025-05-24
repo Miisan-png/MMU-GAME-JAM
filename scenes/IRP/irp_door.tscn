@@ -7,7 +7,7 @@
 size = Vector3(6.14676, 5.37756, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ywh1y"]
-size = Vector3(6.19342, 1.08289, 14.135)
+size = Vector3(6.19342, 0.203889, 5.06954)
 
 [node name="IRP_Door" type="Node3D"]
 transform = Transform3D(1.00073, 0, 0, 0, 1.00073, 0, 0, 0, 1.00073, 0, 0, 0)
@@ -38,5 +38,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00985716, -2.20538, -0.4022
 shape = SubResource("BoxShape3D_ywh1y")
 debug_color = Color(0.992157, 0, 0.239216, 1)
 
-[connection signal="body_entered" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_body_entered"]
-[connection signal="body_exited" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_body_exited"]
+[connection signal="area_entered" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_area_entered"]
+[connection signal="area_exited" from="PlayerTriggerArea" to="." method="_on_player_trigger_area_area_exited"]

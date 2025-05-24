@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvgdvwduitdpj"]
+[gd_scene load_steps=11 format=3 uid="uid://dvgdvwduitdpj"]
 
 [ext_resource type="Script" uid="uid://cr1p5yyiyrwvh" path="res://entity/player/player_movement.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://b1dnxlvd3mwox" path="res://assets/icons/walkie_talkie.png" id="2_bgq54"]
@@ -10,6 +10,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.309057
 height = 1.52007
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjhpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
 shader = ExtResource("2_rkbax")
@@ -33,6 +35,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.966805, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018109, 0)
+
+[node name="pb" type="Area3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00304019, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/pb"]
+shape = SubResource("BoxShape3D_wjhpj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -61,6 +69,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="fetch_item_label" type="Label" parent="CanvasLayer/player_hud"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

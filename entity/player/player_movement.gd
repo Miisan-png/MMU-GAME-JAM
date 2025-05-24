@@ -23,7 +23,7 @@ extends CharacterBody3D
 @onready var mic_system: Control = $CanvasLayer/mic_test
 
 
-@export var fetch_item_range = 20.0  
+@export var fetch_item_range = 20.0
 var current_fetchable_item = null
 var is_fetch_raycast_active = false
 
@@ -138,7 +138,7 @@ func handle_movement(delta: float):
 		velocity.x = 0
 		velocity.z = 0
 
-func handle_raycast():	
+func handle_raycast():
 	var space_state = get_world_3d().direct_space_state
 	var from = camera.global_position
 	var to = from + camera.global_transform.basis.z * -interaction_range
@@ -191,26 +191,32 @@ func handle_fetch_item_raycast():
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = [self]
 	query.collide_with_areas = true
-	query.collide_with_bodies = true
+	query.collide_with_bodies = false  # Only check areas, not bodies
 	var result = space_state.intersect_ray(query)
+	
+	var found_fetchable = null
 	
 	if result:
 		var collider = result.collider
-		if collider is Area3D and collider.name == "FetchAbleItemArea":
+		if collider is Area3D and collider.is_in_group("fetchable_items"):
 			var fetchable_item = collider.get_parent()
-			if current_fetchable_item != fetchable_item:
-				if current_fetchable_item:
-					hide_fetch_ui()
-				current_fetchable_item = fetchable_item
-				show_fetch_ui()
-		else:
+			if fetchable_item and is_valid_fetchable_item(fetchable_item):
+				found_fetchable = fetchable_item
+	
+	if found_fetchable:
+		if current_fetchable_item != found_fetchable:
 			if current_fetchable_item:
 				hide_fetch_ui()
-				current_fetchable_item = null
+			current_fetchable_item = found_fetchable
+			show_fetch_ui()
 	else:
 		if current_fetchable_item:
 			hide_fetch_ui()
 			current_fetchable_item = null
+
+func is_valid_fetchable_item(item) -> bool:
+	return item != null and is_instance_valid(item)
+
 
 func _on_voice_fetch_command():
 	if current_fetchable_item and GM.whistle_mode_enabled:
