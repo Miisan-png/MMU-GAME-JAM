@@ -1,6 +1,7 @@
 extends Control
 @onready var walkie_talkie_ic: TextureRect = $walkie_talkie_ic
 @onready var keycard_ic: TextureRect = $keycard_ic
+@onready var polaroid_ic: TextureRect = $polaroid_ic
 
 func _ready():
 	walkie_talkie_ic.scale = Vector2.ZERO
@@ -11,6 +12,8 @@ func _physics_process(delta: float) -> void:
 		show_icon("keycard")
 	if GM.i_walkie_picked_up == true:
 		show_icon("walkie_talkie")
+	elif GM.show_polaroid_icon == true:
+		show_icon("polaroid")
 
 
 func show_icon(icon_name: String):
@@ -21,6 +24,8 @@ func show_icon(icon_name: String):
 			icon_to_show = walkie_talkie_ic
 		"keycard":
 			icon_to_show = keycard_ic
+		"polaroid":
+			icon_to_show = polaroid_ic
 		_:
 			return
 	

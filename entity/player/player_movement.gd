@@ -19,9 +19,8 @@ extends CharacterBody3D
 @onready var fetch_item_label: Label = $CanvasLayer/player_hud/fetch_item_label
 @onready var crosshair_rect: ColorRect = $CanvasLayer/player_hud/crosshair_rect
 @onready var player_hud: Control = $CanvasLayer/player_hud
-
-
 @onready var mic_system: Control = $CanvasLayer/mic_test
+@onready var picked_walkie_talkie: Node3D = $Head/PickedWalkieTalkie
 
 
 @export var fetch_item_range = 20.0
