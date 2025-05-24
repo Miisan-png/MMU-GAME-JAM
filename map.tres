@@ -1,0 +1,12 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bmb4sgknr7ety"]
+
+[ext_resource type="Sky" uid="uid://tomc6w5s76pv" path="res://sky_post.tres" id="1_l44ik"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_l44ik")
+glow_intensity = 3.77
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_color = Color(0.172366, 0.116654, 0.0657743, 1)
+fog_light_energy = 5.09

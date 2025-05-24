@@ -1,5 +1,5 @@
 extends Node3D
-@onready var door_mesh: CSGBox3D = $CSGCombiner3D/DoorMesh
+@onready var door_mesh: MeshInstance3D = $DoorMesh
 @export var slide_distance: float = 3.0
 @export var open_speed: float = 1.2
 @export var close_speed: float = 1.5
@@ -39,3 +39,11 @@ func close_door():
 	tween = create_tween()
 	tween.tween_property(door_mesh, "position", original_position, close_speed)
 	is_open = false
+
+func _on_area_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		player_in_area = true
+
+func _on_area_body_exited(body: Node3D) -> void:
+	if body.name == "Player":
+		player_in_area = false
