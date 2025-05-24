@@ -1,5 +1,5 @@
 extends Node3D
-@onready var door_mesh: CSGBox3D = $CSGCombiner3D/DoorMesh
+@export var door_mesh:MeshInstance3D
 @export var slide_distance: float = 3.0
 @export var open_speed: float = 1.2
 @export var close_speed: float = 1.5
