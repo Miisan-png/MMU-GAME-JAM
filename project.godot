@@ -28,6 +28,10 @@ GM="*res://global/s_game_manager.gd"
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+fetchable_items=""
+
 [input]
 
 interact={

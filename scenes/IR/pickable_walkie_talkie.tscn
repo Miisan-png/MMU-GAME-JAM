@@ -257,6 +257,7 @@ size = Vector3(1, 1.57617, 1)
 script = ExtResource("1_o4ytg")
 
 [node name="Mesh" type="Node3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.278155, 0, 0, 0, 0.677442, 0, 0, 0, 0.149698, 0, 0.117059, 0)
@@ -301,5 +302,19 @@ skeleton = NodePath("")
 [node name="PickupArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143555, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.143555, 0)
 shape = SubResource("BoxShape3D_dppgj")
+
+[node name="Interact_Label" type="Label3D" parent="."]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.417515, 0.268904, -5.91781e-05)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[E]"
+font_size = 22
+
+[node name="Item_Name_Label" type="Label3D" parent="."]
+transform = Transform3D(0.00391946, 0.999992, -0.000258056, -0.999989, 0.00391873, -0.00275704, -0.002756, 0.000268874, 0.999996, 0.414064, 0.1387, -0.000116399)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "[OLD BRICK]"
+font_size = 22

@@ -79,7 +79,7 @@ var fetch_target: Vector3
 var is_fetching: bool = false
 var fetch_wait_timer: float = 0.0
 var fetch_wait_duration: float = 2.0
-var fetch_speed: float = 2.0
+@export var fetch_speed: float = 6.0
 var is_returning: bool = false
 
 var has_fetched_item: bool = false
