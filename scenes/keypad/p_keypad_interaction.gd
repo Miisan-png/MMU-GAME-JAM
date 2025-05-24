@@ -122,7 +122,7 @@ func activate_puzzle():
 	camera_tween.set_trans(Tween.TRANS_CUBIC)
 	camera_tween.set_ease(Tween.EASE_IN_OUT)
 	
-	camera_tween.tween_callback(func(): 
+	camera_tween.tween_callback(func():
 		puzzle_camera.current = true
 		player_camera.current = false
 	).set_delay(0.8)
@@ -191,15 +191,18 @@ func update_display():
 func opened():
 	is_opened = true
 	print("Keypad opened successfully!")
-	GM.keypad_true = true
+   
 	var color_tween = create_tween()
 	color_tween.tween_property(number_1, "modulate", CORRECT_COLOR, 0.3)
 	color_tween.tween_interval(0.2)
 	color_tween.tween_property(number_2, "modulate", CORRECT_COLOR, 0.3)
 	color_tween.tween_interval(0.2)
 	color_tween.tween_property(number_3, "modulate", CORRECT_COLOR, 0.3)
-	
-	color_tween.tween_callback(func(): print("Color animation complete!"))
+   
+	color_tween.tween_callback(func():
+		print("Color animation complete!")
+		GM.keypad_true = true
+	)
 
 
 
