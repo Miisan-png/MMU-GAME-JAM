@@ -39,11 +39,3 @@ func close_door():
 	tween = create_tween()
 	tween.tween_property(door_mesh, "position", original_position, close_speed)
 	is_open = false
-
-func _on_player_detection_area_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		player_in_area = true
-
-func _on_player_detection_area_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
-		player_in_area = false

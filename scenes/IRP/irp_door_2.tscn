@@ -1,17 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0jpseri0w3sf"]
+[gd_scene load_steps=3 format=3 uid="uid://c0jpseri0w3sf"]
 
-[ext_resource type="Script" uid="uid://uka3m5svjrxc" path="res://scripts/IR/irp_door_2.gd" id="1_eybtm"]
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="2_72ntt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tgta6"]
 size = Vector3(2.00202, 4.27444, 0.181458)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_eybtm"]
-size = Vector3(1.95715, 4.27579, 1.91687)
-
-[node name="IRP_Door_2" type="Node3D"]
+[node name="IRP_Door_3" type="Node3D"]
 transform = Transform3D(1.00073, 0, 0, 0, 1.00073, 0, 0, 0, 1.00073, 0, 0, 0)
-script = ExtResource("1_eybtm")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
@@ -27,12 +22,3 @@ transform = Transform3D(0.163612, 0, 0, 0, 0.184565, 0, 0, 0, 5.65781, 0, 0, 0)
 transform = Transform3D(0.999962, 0, 0, 0, 1, 0, 0, 0, 0.999991, -0.0129318, -0.0172579, 0.00289918)
 shape = SubResource("BoxShape3D_tgta6")
 debug_color = Color(0.744431, 0.45088, 0.300793, 0.42)
-
-[node name="PlayerDetectionArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
-transform = Transform3D(0.999964, 0, 0, 0, 0.999964, 0, 0, 0, 0.999964, -0.0101943, -0.599966, 0.0398546)
-shape = SubResource("BoxShape3D_eybtm")
-
-[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
-[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
