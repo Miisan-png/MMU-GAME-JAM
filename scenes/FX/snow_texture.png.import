@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btjmfrsowphij"
-path.s3tc="res://.godot/imported/Akari-4 Transparent.png-99ea9bba1c626a1bafbf420bd2365932.s3tc.ctex"
+uid="uid://b8edl5w68f8ko"
+path.s3tc="res://.godot/imported/snow_texture.png-e0c11afc19123f201ee5253134bcbf2e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/icons/Akari-4 Transparent.png"
-dest_files=["res://.godot/imported/Akari-4 Transparent.png-99ea9bba1c626a1bafbf420bd2365932.s3tc.ctex"]
+source_file="res://scenes/FX/snow_texture.png"
+dest_files=["res://.godot/imported/snow_texture.png-e0c11afc19123f201ee5253134bcbf2e.s3tc.ctex"]
 
 [params]
 
