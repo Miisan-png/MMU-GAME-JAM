@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cip45eqcyrpou"
-path="res://.godot/imported/train_blockout.fbx-b0525ffe3c497c5600fa4a253f518270.scn"
+uid="uid://edfq686htbnb"
+path="res://.godot/imported/GAME JAM TRAIN V5.fbx-26451dcd8ef4df553388cf25fddf52bc.scn"
 
 [deps]
 
-source_file="res://assets/models/train/train_blockout.fbx"
-dest_files=["res://.godot/imported/train_blockout.fbx-b0525ffe3c497c5600fa4a253f518270.scn"]
+source_file="res://assets/models/train/GAME JAM TRAIN V5.fbx"
+dest_files=["res://.godot/imported/GAME JAM TRAIN V5.fbx-26451dcd8ef4df553388cf25fddf52bc.scn"]
 
 [params]
 
@@ -32,13 +32,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:SK_Mannequin4": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
