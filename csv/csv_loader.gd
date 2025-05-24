@@ -18,20 +18,42 @@ func _ready():
 	load_dialogue_csv()
 
 func load_dialogue_csv():
-	var csv_data = parse_csv_robust(csv_file_path)
+	var file = FileAccess.open(csv_file_path, FileAccess.READ)
 	
-	if csv_data.size() <= 1:  
-		print("Error: No dialogue data found in CSV")
+	if not file:
+		print("Error: Could not open file at ", csv_file_path)
 		return
 	
-	for i in range(1, csv_data.size()):
-		var row = csv_data[i]
-		if row.size() >= 3:  
-			var id = int(row[0])
-			var dialogue = row[1]
-			var type = row[2]
+	var content = file.get_as_text()
+	file.close()
+	
+	if content == "":
+		print("Error: CSV file is empty")
+		return
+	
+	var lines = content.split("\n")
+	var line_count = 0
+	
+	for line in lines:
+		line = line.strip_edges()
+		if line == "":
+			continue
+		
+		line_count += 1
+		if line_count == 1:
+			continue
+		
+		var parts = line.split(",")
+		if parts.size() >= 3:
+			var id_str = parts[0].strip_edges()
+			var dialogue = parts[1].strip_edges()
+			var type = parts[2].strip_edges()
 			
-			dialogue_data[id] = DialogueLine.new(id, dialogue, type)
+			if id_str.is_valid_int():
+				var id = int(id_str)
+				dialogue_data[id] = DialogueLine.new(id, dialogue, type)
+			else:
+				print("Warning: Invalid ID in line: ", line)
 	
 	print("Dialogue CSV loaded! Found dialogue IDs: ", dialogue_data.keys())
 
@@ -77,41 +99,3 @@ func get_dialogue_line(dialogue_id: int) -> DialogueLine:
 
 func has_dialogue(dialogue_id: int) -> bool:
 	return dialogue_data.has(dialogue_id)
-
-func parse_csv_robust(file_path: String) -> Array:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	var result = []
-	
-	if not file:
-		print("Error: Could not open file at ", file_path)
-		return result
-	
-	var content = file.get_as_text()
-	file.close()
-	
-	var lines = content.split("\n")
-	for line in lines:
-		if line.strip_edges() == "":
-			continue
-			
-		var row = []
-		var current_field = ""
-		var in_quotes = false
-		var i = 0
-		
-		while i < line.length():
-			var char = line[i]
-			
-			if char == '"':
-				in_quotes = !in_quotes
-			elif char == ',' and not in_quotes:
-				row.append(current_field.strip_edges())
-				current_field = ""
-			else:
-				current_field += char
-			i += 1
-		
-		row.append(current_field.strip_edges())
-		result.append(row)
-	
-	return result
