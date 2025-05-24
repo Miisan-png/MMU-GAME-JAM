@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct57v3vro2ny3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn8ji"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0.639267, 0.664126, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45pb2"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.021858, 0, 0.354886, 1)
+
+[node name="Temp_lever" type="Node3D"]
+
+[node name="Temp_Lever" type="CSGBox3D" parent="."]
+transform = Transform3D(3.11663, -0.0152517, 0, 3.58262, 0.0132679, 0, 0, 0, 0.090968, 0, 0, 0)
+size = Vector3(0.11746, 3.61108, 0.855713)
+material = SubResource("StandardMaterial3D_sn8ji")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.815076, 0, 0, 0, 0.50001, -0.205896, -0.160304, 0)
+size = Vector3(0.09021, 1, 1)
+material = SubResource("StandardMaterial3D_45pb2")

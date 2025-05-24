@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://cp4vflh7ffi6d" path="res://assets/models/forklift/Low Poly Forklift.fbx" id="1_dtmi2"]
 
 [node name="Low Poly Forklift" instance=ExtResource("1_dtmi2")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
