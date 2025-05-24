@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4cnul61tde74"]
+
+[ext_resource type="Script" uid="uid://c871pbkq2jf5j" path="res://mic_system/data/mic_test.gd" id="1_fl4q4"]
+
+[node name="mic_test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fl4q4")
+keywords = Array[String](["hello", "fetch", "word", "man"])
