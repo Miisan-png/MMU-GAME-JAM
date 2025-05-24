@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://05k2ji5p3brx"]
+
+[ext_resource type="Script" uid="uid://btlrpenhv7yb2" path="res://scripts/Utils/btn_animator.gd" id="1_hvxl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvxl8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71mwd"]
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_animator" type="Control" parent="menu" node_paths=PackedStringArray("buttons")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvxl8")
+buttons = [NodePath("start_btn"), NodePath("settings_btn"), NodePath("quit_btn")]
+
+[node name="start_btn" type="Button" parent="menu/btn_animator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -114.0
+offset_right = -245.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.829468, 0.729864, 0.445706, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hvxl8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71mwd")
+text = "[start]"
+flat = true
+
+[node name="settings_btn" type="Button" parent="menu/btn_animator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -31.0
+offset_right = -245.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.917624, 0.677264, 0.225048, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hvxl8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71mwd")
+text = "[settings]"
+flat = true
+
+[node name="quit_btn" type="Button" parent="menu/btn_animator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = 52.0
+offset_right = -245.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.917624, 0.677264, 0.225048, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hvxl8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71mwd")
+text = "[quit]"
+flat = true
