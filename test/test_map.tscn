@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://6nhkm6535tvd" path="res://assets/placeholder/Metro_PSX/Textures/metro_map.png" id="28_yw708"]
 [ext_resource type="Texture2D" uid="uid://c3gulwfay8my3" path="res://assets/placeholder/Metro_PSX/Textures/automatic_ticket_gate.png" id="29_u6aul"]
 [ext_resource type="Texture2D" uid="uid://tni6kaxyxy1o" path="res://assets/placeholder/Metro_PSX/Textures/Posters.png" id="30_tr2nj"]
-[ext_resource type="PackedScene" uid="uid://wpuhn0q3cmw0" path="res://scenes/IR/ir_action_lever.tscn" id="31_0308s"]
+[ext_resource type="PackedScene" path="res://scenes/IR/ir_action_lever.tscn" id="31_0308s"]
 [ext_resource type="PackedScene" uid="uid://m2b5qu5k4jf" path="res://entity/en_dog/entity_dog.tscn" id="31_hfovl"]
 [ext_resource type="PackedScene" uid="uid://c2y8qmi36qf8s" path="res://scenes/IR/ir_fetchable_keycard.tscn" id="33_78chr"]
 [ext_resource type="PackedScene" uid="uid://c0jpseri0w3sf" path="res://scenes/IRP/irp_door_2.tscn" id="33_dv2w7"]
@@ -4238,7 +4238,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rxad4")
 
-[node name="TestMap" type="Node3D"]
+[node name="TestMap2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v58xu")

@@ -7,8 +7,8 @@ extends CharacterBody3D
 @export var sensitivity = 0.003
 @export var acceleration = 10.0
 
-@export var crouch_height = 0.5
-@export var normal_height = 1.0
+@export var crouch_height = 2.0
+@export var normal_height = 3.0
 @export var interaction_range = 5.0
 
 @onready var head = $Head
