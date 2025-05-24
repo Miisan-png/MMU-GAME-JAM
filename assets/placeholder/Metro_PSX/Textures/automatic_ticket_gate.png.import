@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3gulwfay8my3"
-path.s3tc="res://.godot/imported/automatic_ticket_gate.png-acf052803a9cd2b6ca86f87066d7f2d2.s3tc.ctex"
+path.s3tc="res://.godot/imported/automatic_ticket_gate.png-1e68747ec361c9c7f88f504d2d5c8b40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/placeholder/Metro_PSX/textures/automatic_ticket_gate.png"
-dest_files=["res://.godot/imported/automatic_ticket_gate.png-acf052803a9cd2b6ca86f87066d7f2d2.s3tc.ctex"]
+source_file="res://assets/placeholder/Metro_PSX/Textures/automatic_ticket_gate.png"
+dest_files=["res://.godot/imported/automatic_ticket_gate.png-1e68747ec361c9c7f88f504d2d5c8b40.s3tc.ctex"]
 
 [params]
 

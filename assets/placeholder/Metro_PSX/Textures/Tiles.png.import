@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqf75i2wjh3yf"
-path.s3tc="res://.godot/imported/Tiles.png-2f43b44bdb84eaad504beaa2b57b7bbb.s3tc.ctex"
+path.s3tc="res://.godot/imported/Tiles.png-60cfc107bb6d791650d93824ba3fdaf0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/placeholder/Metro_PSX/textures/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-2f43b44bdb84eaad504beaa2b57b7bbb.s3tc.ctex"]
+source_file="res://assets/placeholder/Metro_PSX/Textures/Tiles.png"
+dest_files=["res://.godot/imported/Tiles.png-60cfc107bb6d791650d93824ba3fdaf0.s3tc.ctex"]
 
 [params]
 
