@@ -12,3 +12,6 @@ var in_keypad_state:bool = false
 
 #fukkk hard code
 var show_polaroid_icon:bool = false
+
+#event rigger
+var event_end_game:bool = false
