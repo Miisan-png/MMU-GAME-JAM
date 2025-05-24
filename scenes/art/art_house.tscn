@@ -491,6 +491,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_osn14")
 
+[sub_resource type="Animation" id="Animation_ntio2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fork3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.84127e-06, 1.49772, 4.62572)]
+}
+
 [sub_resource type="Animation" id="Animation_1h2pi"]
 resource_name = "up lift"
 length = 3.0
@@ -505,21 +520,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.84127e-06, 1.49772, 4.62572), Vector3(1.90735e-06, 5.24252, 4.62572)]
-}
-
-[sub_resource type="Animation" id="Animation_ntio2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fork3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.84127e-06, 1.49772, 4.62572)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x00rd"]
