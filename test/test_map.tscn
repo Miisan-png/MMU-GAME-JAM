@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://dfoqx5qci1oon"]
+[gd_scene load_steps=123 format=4 uid="uid://dfoqx5qci1oon"]
 
 [ext_resource type="Script" uid="uid://n5onyt67med0" path="res://test/test_map.gd" id="1_76uff"]
 [ext_resource type="Material" uid="uid://bm23syh3ou44r" path="res://assets/materials/grid.tres" id="1_hpqtr"]
@@ -41,7 +41,7 @@ glow_intensity = 3.77
 glow_bloom = 0.1
 fog_enabled = true
 fog_light_color = Color(0.172366, 0.116654, 0.0657743, 1)
-fog_light_energy = 6.16
+fog_light_energy = 12.12
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xaagg"]
 emission_shape = 3
@@ -1355,6 +1355,43 @@ size = Vector3(3.16214, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3irn"]
 
+[sub_resource type="Animation" id="Animation_43t0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5dqhi"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnc60"]
+_data = {
+&"RESET": SubResource("Animation_43t0o"),
+&"fade_in": SubResource("Animation_5dqhi")
+}
+
 [node name="TestMap2" type="Node3D"]
 script = ExtResource("1_76uff")
 
@@ -1710,7 +1747,7 @@ no_depth_test = true
 font_size = 16
 
 [node name="Keycard_Door" parent="Puzzles" instance=ExtResource("33_dv2w7")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0352192, 1.55083, 11.2538)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.989423, 1.55083, 17.9488)
 
 [node name="Item_KeyCard" parent="Puzzles" instance=ExtResource("33_78chr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00198193, 0.581512, -8.3484)
@@ -1976,34 +2013,44 @@ delivery_distance = 1.0
 [node name="Skeleton3D" parent="Dog/metarig" index="0"]
 bones/0/position = Vector3(0, 0.7731, -0.0319)
 bones/0/rotation = Quaternion(-0.49192, -0.507961, 0.49221, 0.507661)
-bones/2/rotation = Quaternion(0.00234073, 0.00256102, 0.238017, 0.971255)
-bones/3/rotation = Quaternion(-0.00108945, -0.0240081, -0.0348823, 0.999102)
-bones/5/rotation = Quaternion(-0.000119054, 0.00114239, -0.103164, 0.994664)
+bones/1/rotation = Quaternion(-0.000253698, -0.00593586, -0.0388474, 0.999227)
+bones/2/rotation = Quaternion(0.00157594, 0.00260272, 0.160249, 0.987072)
+bones/3/rotation = Quaternion(-0.00356006, -0.0238661, -0.113986, 0.993189)
+bones/4/rotation = Quaternion(-0.00358469, 0.0262631, -0.124542, 0.99186)
+bones/5/rotation = Quaternion(-0.000116637, 0.00114264, -0.10107, 0.994879)
 bones/5/scale = Vector3(0.999999, 1, 1)
-bones/6/rotation = Quaternion(-0.000409488, -0.00596614, -0.0684063, 0.99764)
-bones/9/rotation = Quaternion(-0.481102, 0.522947, 0.485099, 0.509653)
-bones/10/rotation = Quaternion(0.77492, -0.00276391, 0.0235382, 0.631615)
-bones/11/rotation = Quaternion(-0.674329, 0.00678097, -0.020552, 0.738114)
-bones/12/rotation = Quaternion(0.00570094, 0.791306, -0.611393, -0.000816989)
-bones/13/rotation = Quaternion(-0.61296, 0.349723, 0.620422, 0.342126)
-bones/14/rotation = Quaternion(0.738516, 0.00476978, -0.0284886, 0.673617)
-bones/15/rotation = Quaternion(-0.780095, -0.00839889, 0.022759, 0.62519)
-bones/16/rotation = Quaternion(-0.0054227, 0.986206, -0.165428, 0.00163653)
-bones/17/position = Vector3(0, 0.769038, -0.0319)
-bones/21/rotation = Quaternion(-0.146513, -2.61231e-07, -4.81552e-08, 0.989209)
+bones/6/rotation = Quaternion(-0.000279519, -0.00597363, -0.0466939, 0.998891)
+bones/8/rotation = Quaternion(0.757082, 0.608475, 0.236965, -0.0207782)
+bones/9/rotation = Quaternion(-0.484028, 0.520112, 0.487964, 0.507042)
+bones/10/rotation = Quaternion(0.820758, -0.00228596, 0.025165, 0.570718)
+bones/11/rotation = Quaternion(-0.716997, 0.00661534, -0.0216196, 0.69671)
+bones/12/rotation = Quaternion(0.00575667, 0.777734, -0.628566, -0.00122876)
+bones/13/rotation = Quaternion(-0.615173, 0.345909, 0.622549, 0.338146)
+bones/14/rotation = Quaternion(0.770909, 0.00383673, -0.0306116, 0.636198)
+bones/15/rotation = Quaternion(-0.829231, -0.00838371, 0.0234931, 0.558349)
+bones/16/rotation = Quaternion(-0.0060779, 0.994816, -0.101491, 0.00176014)
+bones/17/position = Vector3(0, 0.722836, -0.0319)
+bones/17/rotation = Quaternion(0.647089, 0, 0, 0.762414)
+bones/18/rotation = Quaternion(0.032562, -1.98698e-07, 1.89436e-08, 0.99947)
+bones/19/rotation = Quaternion(0.0122192, 1.03736e-06, -2.61574e-08, 0.999925)
+bones/20/rotation = Quaternion(-0.290376, -5.48881e-07, -3.03755e-07, 0.956913)
+bones/21/rotation = Quaternion(-0.226166, -2.56456e-07, -6.92024e-08, 0.974089)
 bones/22/rotation = Quaternion(0.5144, 1.21823e-07, 6.25653e-08, 0.85755)
-bones/23/rotation = Quaternion(0.554736, 5.12241e-09, 2.70128e-09, 0.832027)
+bones/23/rotation = Quaternion(0.539959, 4.94993e-09, 3.0335e-09, 0.841691)
+bones/24/rotation = Quaternion(-0.233657, -0.0707378, -0.222257, 0.943929)
+bones/25/rotation = Quaternion(0.094573, 0.00422042, 0.195979, 0.976028)
 bones/26/rotation = Quaternion(-0.233657, 0.0707375, 0.222257, 0.943929)
+bones/27/rotation = Quaternion(0.094573, -0.00422042, -0.195979, 0.976028)
 bones/28/rotation = Quaternion(0.572439, 0.159976, -0.0871295, 0.799456)
-bones/29/rotation = Quaternion(0.337536, -0.0161464, 0.179069, 0.923982)
+bones/29/rotation = Quaternion(0.438455, 0.00881602, 0.166372, 0.883176)
 bones/29/scale = Vector3(1, 0.999999, 1)
-bones/30/rotation = Quaternion(-0.221314, -0.0214319, 0.0310217, 0.974473)
-bones/31/rotation = Quaternion(-0.237819, 0.0302118, -0.00193474, 0.970838)
-bones/32/rotation = Quaternion(0.0759409, 0.897181, -0.434431, 0.0238469)
-bones/34/rotation = Quaternion(0.260064, 0.0329086, -0.178178, 0.948439)
-bones/35/rotation = Quaternion(-0.213846, 0.022609, -0.0284597, 0.976191)
-bones/36/rotation = Quaternion(-0.184994, -0.030086, 0.00289465, 0.982275)
-bones/37/rotation = Quaternion(-0.112325, 0.910593, -0.39533, -0.0437995)
+bones/30/rotation = Quaternion(-0.418934, -0.0210053, 0.0607694, 0.905737)
+bones/31/rotation = Quaternion(-0.214143, 0.0285206, -0.000730688, 0.976386)
+bones/32/rotation = Quaternion(0.0793995, 0.934257, -0.347003, 0.021189)
+bones/34/rotation = Quaternion(0.348535, 0.0130828, -0.169765, 0.921701)
+bones/35/rotation = Quaternion(-0.392, 0.0219638, -0.0532893, 0.918158)
+bones/36/rotation = Quaternion(-0.160295, -0.0293023, 0.002958, 0.98663)
+bones/37/rotation = Quaternion(-0.116883, 0.936271, -0.328997, -0.038679)
 bones/39/rotation = Quaternion(0.295446, 7.0226e-08, -1.26004e-07, 0.95536)
 
 [node name="PolaroidEventHelper" type="Area3D" parent="." node_paths=PackedStringArray("polaroid_node")]
@@ -2069,11 +2116,36 @@ flat = true
 [node name="ObjectivePlayer" parent="CanvasLayer" instance=ExtResource("4_g8vfi")]
 visible = false
 
+[node name="FadeIn" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/FadeIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/FadeIn"]
+libraries = {
+&"": SubResource("AnimationLibrary_tnc60")
+}
+
 [connection signal="body_entered" from="Puzzles/Keypad_Lock/DetectionArea" to="Puzzles/Keypad_Lock" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Puzzles/Keypad_Lock/DetectionArea" to="Puzzles/Keypad_Lock" method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Puzzles/Item_Walkie/PickupArea" to="Puzzles/Item_Walkie" method="_on_pickup_area_body_entered"]
 [connection signal="body_exited" from="Puzzles/Item_Walkie/PickupArea" to="Puzzles/Item_Walkie" method="_on_pickup_area_body_exited"]
 [connection signal="body_entered" from="PolaroidEventHelper" to="PolaroidEventHelper" method="_on_body_entered"]
+[connection signal="animation_finished" from="CanvasLayer/FadeIn/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="Puzzles/Lever_Door"]
 [editable path="Puzzles/Lever"]

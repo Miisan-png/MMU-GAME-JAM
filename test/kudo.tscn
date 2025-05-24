@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://yma17g0baevk"]
+[gd_scene load_steps=17 format=3 uid="uid://cu283n6pgctjo"]
 
 [ext_resource type="Texture2D" uid="uid://gnsp4fq8v2mh" path="res://assets/prototype/PNG/Dark/texture_01.png" id="1_cdv6t"]
 [ext_resource type="PackedScene" uid="uid://51ariux8td1f" path="res://assets/models/SK_Mannequin.FBX" id="2_nlxif"]
-[ext_resource type="Shader" uid="uid://bqrgj8xirhcat" path="res://shaders/test_shader.gdshader" id="2_ujygl"]
-[ext_resource type="PackedScene" uid="uid://ct57v3vro2ny3" path="res://assets/placeholder/temp_lever.tscn" id="2_uvfo7"]
+[ext_resource type="Shader" path="res://shaders/test_shader.gdshader" id="2_ujygl"]
+[ext_resource type="PackedScene" path="res://assets/placeholder/temp_lever.tscn" id="2_uvfo7"]
 [ext_resource type="PackedScene" uid="uid://b3btfsfqo02r8" path="res://scenes/IR/ir_action_base.tscn" id="3_nlxif"]
 [ext_resource type="PackedScene" uid="uid://73fd8qx7nxq4" path="res://assets/models/walkie talkie/walkie.tscn" id="4_0t3w6"]
 [ext_resource type="PackedScene" uid="uid://cip45eqcyrpou" path="res://assets/models/train/train_blockout.fbx" id="5_nlxif"]

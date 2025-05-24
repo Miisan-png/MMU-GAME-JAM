@@ -1,8 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqm5xengn46h6"]
+[gd_scene load_steps=8 format=3 uid="uid://cqm5xengn46h6"]
 
 [ext_resource type="Script" uid="uid://bnf4qkawb8ar1" path="res://scenes/Extra/video_player.gd" id="1_nqoxl"]
+[ext_resource type="VideoStream" uid="uid://ctq6k3j3urdkx" path="res://assets/video/Intro_Scene.ogv" id="2_uh421"]
+[ext_resource type="Shader" uid="uid://cwp3lteo8wjxy" path="res://shaders/sh_dither_overlay.gdshader" id="3_uh421"]
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_uh421"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_nqoxl"]
+resource_name = "fade_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpxpd"]
+_data = {
+&"RESET": SubResource("Animation_uh421"),
+&"fade_out": SubResource("Animation_nqoxl")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpxpd"]
+shader = ExtResource("3_uh421")
+shader_parameter/_ScanLineJitter = 0.25
+shader_parameter/_VerticalJump = 0.0
+shader_parameter/_HorizontalShake = 0.0
+shader_parameter/_ColorDrift = 0.02
+
+[node name="VideoPlayer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,3 +43,20 @@ offset_bottom = 431.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
+stream = ExtResource("2_uh421")
+autoplay = true
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qpxpd")
+}
+
+[node name="dither_overlay_rect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qpxpd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
