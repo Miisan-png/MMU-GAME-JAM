@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhen2u743h4tv"
-path.s3tc="res://.godot/imported/propane_storage.png-a22a73dd7066eaef482b43b6700346b9.s3tc.ctex"
+path.s3tc="res://.godot/imported/propane_storage.png-a658840cf4e11bc7dc5198fe054bcc64.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/propane_storage.png"
-dest_files=["res://.godot/imported/propane_storage.png-a22a73dd7066eaef482b43b6700346b9.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/propane_storage.png"
+dest_files=["res://.godot/imported/propane_storage.png-a658840cf4e11bc7dc5198fe054bcc64.s3tc.ctex"]
 
 [params]
 

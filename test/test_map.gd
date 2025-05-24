@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $CanvasLayer/FadeIn/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $FadeIn/AnimationPlayer
 @onready var fade_in: Control = $CanvasLayer/FadeIn
 
 func _ready() -> void:

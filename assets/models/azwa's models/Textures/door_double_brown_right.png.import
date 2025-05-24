@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqknbm87r5u4h"
-path.s3tc="res://.godot/imported/door_double_brown_right.png-f3264e4de098feb8107d72ea4c21816a.s3tc.ctex"
+path.s3tc="res://.godot/imported/door_double_brown_right.png-e4298771dfdc9cd33c2a97ea3cfb213d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/door_double_brown_right.png"
-dest_files=["res://.godot/imported/door_double_brown_right.png-f3264e4de098feb8107d72ea4c21816a.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/door_double_brown_right.png"
+dest_files=["res://.godot/imported/door_double_brown_right.png-e4298771dfdc9cd33c2a97ea3cfb213d.s3tc.ctex"]
 
 [params]
 

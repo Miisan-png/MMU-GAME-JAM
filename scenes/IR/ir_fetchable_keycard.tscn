@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://c2y8qmi36qf8s"]
+[gd_scene load_steps=12 format=4 uid="uid://c2y8qmi36qf8s"]
 
 [ext_resource type="Texture2D" uid="uid://bs15s1b18lnod" path="res://assets/texture/ACCESS.jpg" id="1_lbu2v"]
 [ext_resource type="Shader" uid="uid://fba8ytd4q4ap" path="res://shaders/sh_item_shine.gdshader" id="2_ii48l"]
-[ext_resource type="Texture2D" uid="uid://cpvscdn3uqvpq" path="res://assets/fx_textures/point_circle.png" id="3_gdviw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7mrs"]
 albedo_texture = ExtResource("1_lbu2v")
@@ -97,14 +96,6 @@ shadow_mesh = SubResource("ArrayMesh_et3s7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_xb08d"]
 size = Vector3(1.54322, 1.44922, 1.83643)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wsvti"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cta0a"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.85913, 0.704895, 0.0958962, 1)
-albedo_texture = ExtResource("3_gdviw")
-
 [node name="ir_fetchable_keycard" type="Node3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
@@ -129,8 +120,3 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0986938, 0.0397931, -0.418213)
 shape = SubResource("BoxShape3D_xb08d")
 debug_color = Color(0.740827, 0.467571, 0, 1)
-
-[node name="fx_fetch_zone" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122205, -0.468171, -0.501112)
-mesh = SubResource("PlaneMesh_wsvti")
-surface_material_override/0 = SubResource("StandardMaterial3D_cta0a")

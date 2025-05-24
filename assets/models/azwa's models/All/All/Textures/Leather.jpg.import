@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://iodjhs4qh7ll"
-path.s3tc="res://.godot/imported/Leather.jpg-00b89a6ce6d17cbfb453b4c3a156e18a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Leather.jpg-8c859bffc60a1e70f3a7e40986edf6bf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/All/All/textures/Leather.jpg"
-dest_files=["res://.godot/imported/Leather.jpg-00b89a6ce6d17cbfb453b4c3a156e18a.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/All/All/Textures/Leather.jpg"
+dest_files=["res://.godot/imported/Leather.jpg-8c859bffc60a1e70f3a7e40986edf6bf.s3tc.ctex"]
 
 [params]
 

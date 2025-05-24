@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hdol28cgqaah"
-path.s3tc="res://.godot/imported/Wood_02.jpg-6c0c818698c6615e74a81bd4112381e9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Wood_02.jpg-615d4d38f9d83f097d7dbc6d765f7e99.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/All/All/textures/Wood_02.jpg"
-dest_files=["res://.godot/imported/Wood_02.jpg-6c0c818698c6615e74a81bd4112381e9.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/All/All/Textures/Wood_02.jpg"
+dest_files=["res://.godot/imported/Wood_02.jpg-615d4d38f9d83f097d7dbc6d765f7e99.s3tc.ctex"]
 
 [params]
 

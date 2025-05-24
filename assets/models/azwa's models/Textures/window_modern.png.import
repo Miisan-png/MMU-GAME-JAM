@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq7qmltkm31ep"
-path.s3tc="res://.godot/imported/window_modern.png-3f2cecd150cdb31411aa8f6b5417ec75.s3tc.ctex"
+path.s3tc="res://.godot/imported/window_modern.png-bc8a7913afac9c401b5d580efaa2d5c7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/window_modern.png"
-dest_files=["res://.godot/imported/window_modern.png-3f2cecd150cdb31411aa8f6b5417ec75.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/window_modern.png"
+dest_files=["res://.godot/imported/window_modern.png-bc8a7913afac9c401b5d580efaa2d5c7.s3tc.ctex"]
 
 [params]
 
