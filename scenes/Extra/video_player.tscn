@@ -18,7 +18,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpxpd"]
 shader = ExtResource("3_uh421")
-shader_parameter/_ScanLineJitter = 0.25
+shader_parameter/_ScanLineJitter = 0.365
 shader_parameter/_VerticalJump = 0.0
 shader_parameter/_HorizontalShake = 0.0
 shader_parameter/_ColorDrift = 0.02
@@ -60,3 +60,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -28.0
+offset_right = 1166.0
+offset_bottom = 680.0
+color = Color(0.117647, 0.0235294, 0, 0.560784)
