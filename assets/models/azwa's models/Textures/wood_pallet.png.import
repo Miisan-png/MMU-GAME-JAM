@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgyfr7jpj6lkw"
-path.s3tc="res://.godot/imported/wood_pallet.png-156c4f10027460ffff07435003d0c4de.s3tc.ctex"
+path.s3tc="res://.godot/imported/wood_pallet.png-8ade67af53a9eec9c473e46b5ef0cb29.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/models/azwa's models/textures/wood_pallet.png"
-dest_files=["res://.godot/imported/wood_pallet.png-156c4f10027460ffff07435003d0c4de.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/Textures/wood_pallet.png"
+dest_files=["res://.godot/imported/wood_pallet.png-8ade67af53a9eec9c473e46b5ef0cb29.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c786umsr27m5l"
-path.s3tc="res://.godot/imported/Foods_01.jpg-6473d8caf09e6dc9d20dd1d27724f763.s3tc.ctex"
+path.s3tc="res://.godot/imported/Foods_01.jpg-1f1847dafa73d43e902b68e0b22e9f3e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/All/All/textures/Foods_01.jpg"
-dest_files=["res://.godot/imported/Foods_01.jpg-6473d8caf09e6dc9d20dd1d27724f763.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/All/All/Textures/Foods_01.jpg"
+dest_files=["res://.godot/imported/Foods_01.jpg-1f1847dafa73d43e902b68e0b22e9f3e.s3tc.ctex"]
 
 [params]
 

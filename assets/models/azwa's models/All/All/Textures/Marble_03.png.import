@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://daj5g3xswnbv2"
-path.s3tc="res://.godot/imported/Marble_03.png-8377728db68ecbc55ef9768eb3cfce90.s3tc.ctex"
+path.s3tc="res://.godot/imported/Marble_03.png-9e79e6fd286a66eedef1d1705360abaf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/All/All/textures/Marble_03.png"
-dest_files=["res://.godot/imported/Marble_03.png-8377728db68ecbc55ef9768eb3cfce90.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/All/All/Textures/Marble_03.png"
+dest_files=["res://.godot/imported/Marble_03.png-9e79e6fd286a66eedef1d1705360abaf.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvee3b5vb55dd"
-path.s3tc="res://.godot/imported/Fabric_08.jpg-0b851cbba26fc92ee35cacc3394f17b6.s3tc.ctex"
+path.s3tc="res://.godot/imported/Fabric_08.jpg-fe191714e8c117b293977ff692aa1e8d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/azwa's models/All/All/textures/Fabric_08.jpg"
-dest_files=["res://.godot/imported/Fabric_08.jpg-0b851cbba26fc92ee35cacc3394f17b6.s3tc.ctex"]
+source_file="res://assets/models/azwa's models/All/All/Textures/Fabric_08.jpg"
+dest_files=["res://.godot/imported/Fabric_08.jpg-fe191714e8c117b293977ff692aa1e8d.s3tc.ctex"]
 
 [params]
 
