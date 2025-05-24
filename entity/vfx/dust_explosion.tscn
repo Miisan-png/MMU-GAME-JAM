@@ -75,8 +75,10 @@ size = Vector2(2.29, 3.035)
 [node name="DustExplosion" type="Node3D"]
 
 [node name="Smaller debris" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 1000
 lifetime = 2.0
+one_shot = true
 explosiveness = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_3xdlu")
@@ -84,8 +86,10 @@ draw_pass_1 = SubResource("SphereMesh_xkh8f")
 
 [node name="Smallerer Debrizzzz" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000499725, -0.0157795, 0.00155163)
+emitting = false
 amount = 500
 lifetime = 4.0
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_r8y1f")
