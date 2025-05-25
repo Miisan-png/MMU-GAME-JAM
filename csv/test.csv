@@ -1,32 +1,34 @@
 ID,DIALOGUE,DIALOGUE_TYPE
 1,To whoevers out there,ENTRY
 2,Everything gone,MID
-2,Everything I worked for,MID
-3,So many years of my life chasing money,MID
-4,What for,MID
-5,The people I cut off,MID
-6,My family,MID
-7,How much I would give,MID
-8,Whats that,MID
-9,The the debris ,MID
-10,Its coming ,MID
-11,"""Sounds like regret finally caught up to him''",MID
-12,""" I guess it's about to catch me next""",MID
-13,"""I wish I talked to mom more, maybe told her I loved her more………""",END
-14,Hello,ENTRY
-15,I just saw the asteriod hit the station are you guys,MID
-16,H-h-hello,MID
-16,Im not sure if your train is all good or not but just,MID
-17,Bunker,MID
-18,Follow the metro,END
-19,"Repeating, if there is any suvivor at the station",ENTRY
-20,The passcode for the security gate is four two zero ,MID
-21,I repeat four two zero,END
-22,"Alice, can you hear me",ENTRY
-23,"Im sorry, sorry for all of it ",MID
-24,I need you with me ,MID
-25,I swear I did'nt mean it ,MID
-26,Answer me,MID
-27,"""Funny how the world is ending but I can only remember what I did to her""",MID
-28," ""I did not mean what I said""",MID
-29," ""I loved her and she loved me, Once……..""",END
+3,Everything I worked for,MID
+4,So many years of my life chasing money,MID
+5,What for,MID
+6,The people I cut off,MID
+7,My family,MID
+8,How much I would give,MID
+9,Whats that,MID
+10,The the debris ,MID
+11,Its coming ,MID
+12,"""Sounds like regret finally caught up to him''",MID
+13,""" I guess it's about to catch me next""",MID
+14,"""I wish I talked to mom more, maybe told her I loved her more………""",END
+15,Hello,ENTRY
+16,I just saw the asteriod hit the station are you guys,MID
+17,H-h-hello,MID
+18,Im not sure if your train is all good or not but just,MID
+19,Bunker,MID
+20,Follow the metro,END
+21,"Repeating, if there is any suvivor at the station",ENTRY
+22,The passcode for the security gate is four two zero ,MID
+23,I repeat four two zero,END
+24,"Alice, can you hear me",ENTRY
+25,"Im sorry, sorry for all of it ",MID
+26,I need you with me ,MID
+27,I swear I did'nt mean it ,MID
+28,Answer me,MID
+29,"""Funny how the world is ending but I can only remember what I did to her""",MID
+30," ""I did not mean what I said""",MID
+31," ""I loved her and she loved me, Once……..""",END
+32,I'm sorry. But only you can come,ENTRY
+33,"""…guess its just you and me only then buddy""",END
